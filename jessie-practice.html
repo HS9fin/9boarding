@@ -51,35 +51,301 @@
       </div>
 
       <section id="practiceContent" class="mt-8 hidden">
-        <div class="rounded-xl border border-surface-200 bg-white/80 shadow-sm p-5 space-y-6">
-          <div>
-            <h2 class="font-semibold">Scenario 1 — Triage a headline</h2>
-            <p class="mt-2 text-sm text-gray-700">Given a headline and source, decide the correct Jessie actions (tagging, product surface, publish vs. hold).</p>
-            <ul class="mt-3 text-sm text-gray-700 list-disc pl-5">
-              <li>Headline: "Acme Corp launches $500m senior secured notes — initial talk 7.5%"</li>
-              <li>Source: Company press release via monitored site</li>
-            </ul>
-            <details class="mt-3">
-              <summary class="cursor-pointer text-sm text-brand-700 hover:underline">Show model answer</summary>
-              <div class="mt-2 text-sm text-gray-700">
-                <p>Tag as HY (if applicable), Product: News, Entities: Acme Corp, deal tags for "New Issue"; publish to News. Consider linking to Deals once live.</p>
+        <div class="rounded-xl border border-surface-200 bg-white/80 shadow-sm p-5">
+          <div id="slides" class="relative overflow-hidden">
+            <div id="track" class="flex w-full transition-transform duration-500 ease-out" style="transform: translateX(0%);">
+            <article id="slide1" class="min-w-full">
+              <div class="grid grid-cols-1 lg:grid-cols-5 gap-6">
+            <!-- Jessie-like item (left) -->
+            <div class="lg:col-span-3">
+              <div class="space-y-4">
+                <div class="text-sm break-all">
+                  <a href="https://www.tradingview.com/news/reuters.com,2025:newsml_FWN3WC065:0-telef-nica-set-to-cut-its-dividend-as-part-of-a-new-strategy-plan-due-next-week-bloomberg-news/" target="_blank" class="text-brand-700 hover:underline">https://www.tradingview.com/news/reuters.com,2025:newsml_FWN3WC065:0-telef-nica-set-to-cut-its-dividend-as-part-of-a-new-strategy-plan-due-next-week-bloomberg-news/</a>
+                </div>
+
+                <div class="flex items-start justify-between gap-4">
+                  <div>
+                    <p class="text-base font-semibold leading-snug">Telefonica cuts dividend in two as part of new strategy - TradingView (Reuters - Global)</p>
+                    <div class="mt-1 text-sm text-gray-700">Source: <a href="https://www.reuters.com/" target="_blank" class="text-brand-700 hover:underline">Reuters - Global</a></div>
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-sm">
+                  <div>
+                    <div class="text-gray-500">Company</div>
+                    <div class="font-medium">Telefonica</div>
+                  </div>
+                  <div>
+                    <div class="text-gray-500">Type</div>
+                    <div class="font-medium">News</div>
+                  </div>
+                  <div>
+                    <div class="text-gray-500">Date</div>
+                    <div class="font-medium">Tue, 04 Nov 25 (UTC 07:06)</div>
+                  </div>
+                  <div>
+                    <div class="text-gray-500">Region</div>
+                    <div class="flex flex-wrap gap-1 mt-1">
+                      <span class="inline-flex items-center rounded bg-surface-200 px-2 py-0.5 text-xs">EMEA</span>
+                      <span class="inline-flex items-center rounded bg-surface-200 px-2 py-0.5 text-xs">Americas</span>
+                      <span class="inline-flex items-center rounded bg-surface-200 px-2 py-0.5 text-xs">APAC</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex flex-wrap gap-2 pt-1">
+                  <button type="button" class="j-btn publish inline-flex items-center rounded-md bg-emerald-600 px-3 py-1.5 text-sm font-medium text-white shadow hover:bg-emerald-700">Publish</button>
+                  <button type="button" class="j-btn publish-now inline-flex items-center rounded-md bg-emerald-500 px-3 py-1.5 text-sm font-medium text-white shadow hover:bg-emerald-600">Publish Now</button>
+                  <button type="button" class="j-btn suppress inline-flex items-center rounded-md border border-surface-300 bg-gray-200 px-3 py-1.5 text-sm font-medium text-gray-900 shadow-sm hover:bg-gray-300">Suppress Send</button>
+                  <button type="button" class="j-btn translate inline-flex items-center rounded-md border border-surface-300 bg-white px-3 py-1.5 text-sm font-medium text-gray-900 shadow-sm hover:bg-surface-100">Translate</button>
+                </div>
+
+                <div class="flex flex-wrap gap-2">
+                  <button type="button" class="j-chip irrelevant inline-flex items-center rounded-full bg-rose-500 text-white px-3 py-1 text-xs font-semibold">Irrelevant</button>
+                  <button type="button" class="j-chip mismatch inline-flex items-center rounded-full bg-rose-500 text-white px-3 py-1 text-xs font-semibold">Company Mismatch</button>
+                  <button type="button" class="j-chip duplicate inline-flex items-center rounded-full bg-rose-500 text-white px-3 py-1 text-xs font-semibold">Duplicate</button>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  <select disabled class="w-full rounded-md border border-surface-300 bg-white px-3 py-2 text-sm text-gray-700"><option>Publish As...</option></select>
+                  <select disabled class="w-full rounded-md border border-surface-300 bg-white px-3 py-2 text-sm text-gray-700"><option>Publish Now As...</option></select>
+                  <select disabled class="w-full rounded-md border border-surface-300 bg-white px-3 py-2 text-sm text-gray-700"><option>Suppress As...</option></select>
+                </div>
+
+                <div class="pt-3">
+                  <h3 class="text-sm font-semibold">Recent Activity</h3>
+                  <ul class="mt-2 text-sm text-gray-700 space-y-1">
+                    <li>• 17 minutes ago: Telefonica to Halve 2026 Dividend in Shift to Focus on Growth (Bloomberg) <span class="font-medium">[unread]</span></li>
+                    <li>• 18 minutes ago: Telefonica books lower than expected third quarter net profit - TradingView (Reuters - Global) <span class="font-medium">[unread]</span></li>
+                    <li>• 19 minutes ago: Telefónica reducirá su dividendo a la mitad en 2026, sin ampliación de capital (El Economista) <span class="font-medium">[unread]</span></li>
+                  </ul>
+                </div>
+
+                <div class="pt-3">
+                  <h3 class="text-sm font-semibold">Latest Published Activity</h3>
+                  <ul class="mt-2 text-sm text-gray-700 space-y-1">
+                    <li>• 3 days ago: Spain's Telefonica Closes Sale Of Ecuador's Unit For 329 Mln Euros - TradingView (Reuters - Global)</li>
+                    <li>• 3 days ago: Telefónica cae el 2,5% en bolsa ante la posible recorte de dividendo, según analistas (Infobae)</li>
+                    <li>• 3 days ago: Telefónica Brasil reports 13% net profit growth in Q3 (Telecompaper)</li>
+                  </ul>
+                </div>
               </div>
-            </details>
+            </div>
+
+            <!-- Decision panel (right) -->
+            <div class="lg:col-span-2">
+              <div class="rounded-lg border border-surface-200 bg-white p-4">
+                <h2 class="font-semibold">Your decision</h2>
+                <p class="text-sm text-gray-700 mt-1">Choose the company and whether this should be published on 9fin.</p>
+
+                <div class="mt-4 space-y-4">
+                  <div>
+                    <label class="text-sm text-gray-700">Company</label>
+                    <select id="companySelect" class="mt-1 w-full rounded-md border border-surface-300 bg-white px-3 py-2 text-sm">
+                      <option value="">Select company...</option>
+                      <option>Telefonica</option>
+                      <option>Telefónica Brasil</option>
+                      <option>Telefónica Deutschland Holding</option>
+                      <option>Other / None</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label class="text-sm text-gray-700">Decision</label>
+                    <div class="mt-2 grid grid-cols-2 gap-2">
+                      <label class="flex items-center gap-2 rounded-md border border-surface-300 px-3 py-2 text-sm">
+                        <input type="radio" name="decision" value="publish" class="h-4 w-4 text-brand-600" />
+                        <span>Publish</span>
+                      </label>
+                      <label class="flex items-center gap-2 rounded-md border border-surface-300 px-3 py-2 text-sm">
+                        <input type="radio" name="decision" value="irrelevant" class="h-4 w-4 text-brand-600" />
+                        <span>Irrelevant</span>
+                      </label>
+                      <label class="flex items-center gap-2 rounded-md border border-surface-300 px-3 py-2 text-sm">
+                        <input type="radio" name="decision" value="duplicate" class="h-4 w-4 text-brand-600" />
+                        <span>Duplicate</span>
+                      </label>
+                      <label class="flex items-center gap-2 rounded-md border border-surface-300 px-3 py-2 text-sm">
+                        <input type="radio" name="decision" value="suppress" class="h-4 w-4 text-brand-600" />
+                        <span>Suppress send</span>
+                      </label>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label for="notes" class="text-sm text-gray-700">Notes (optional)</label>
+                    <textarea id="notes" rows="3" class="mt-1 w-full rounded-md border border-surface-300 px-3 py-2 text-sm" placeholder="Why publish / not publish? Any tagging notes?"></textarea>
+                  </div>
+
+                  <div class="flex gap-3">
+                    <button id="checkBtn" class="inline-flex items-center rounded-md bg-brand-700 px-4 py-2 text-sm font-medium text-white shadow hover:bg-brand-600">Check answer</button>
+                    <button id="resetBtn" class="inline-flex items-center rounded-md bg-surface-200 px-4 py-2 text-sm font-medium text-gray-900 hover:bg-surface-300">Reset</button>
+                  </div>
+
+                  <div id="result" class="hidden rounded-md border p-3 text-sm"></div>
+
+                  <details class="mt-2">
+                    <summary class="cursor-pointer text-sm text-brand-700 hover:underline">Show model answer</summary>
+                    <div class="mt-2 text-sm text-gray-700 space-y-2">
+                      <p><span class="font-semibold">Company:</span> Telefonica (parent). Not Telefónica Brasil or Deutschland.</p>
+                      <p><span class="font-semibold">Decision:</span> Publish. It’s a material dividend policy change relevant to credit/equity markets. Consider tagging dividend, corporate action, and linking related items.</p>
+                    </div>
+                  </details>
+                </div>
+              </div>
+            </div>
+          </div>
+            </article>
+
+            <!-- Slide 2: duplicate layout; user will update the URL later -->
+            <article id="slide2" class="min-w-full">
+              <div class="grid grid-cols-1 lg:grid-cols-5 gap-6">
+                <div class="lg:col-span-3">
+                  <div class="space-y-4">
+                    <div class="text-sm break-all">
+                      <a href="#REPLACE_WITH_URL_Q2" target="_blank" class="text-brand-700 hover:underline">#REPLACE_WITH_URL_Q2</a>
+                    </div>
+
+                    <div class="flex items-start justify-between gap-4">
+                      <div>
+                        <p class="text-base font-semibold leading-snug">Telefonica cuts dividend in two as part of new strategy - TradingView (Reuters - Global)</p>
+                        <div class="mt-1 text-sm text-gray-700">Source: <a href="https://www.reuters.com/" target="_blank" class="text-brand-700 hover:underline">Reuters - Global</a></div>
+                      </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-sm">
+                      <div>
+                        <div class="text-gray-500">Company</div>
+                        <div class="font-medium">Telefonica</div>
+                      </div>
+                      <div>
+                        <div class="text-gray-500">Type</div>
+                        <div class="font-medium">News</div>
+                      </div>
+                      <div>
+                        <div class="text-gray-500">Date</div>
+                        <div class="font-medium">Tue, 04 Nov 25 (UTC 07:06)</div>
+                      </div>
+                      <div>
+                        <div class="text-gray-500">Region</div>
+                        <div class="flex flex-wrap gap-1 mt-1">
+                          <span class="inline-flex items-center rounded bg-surface-200 px-2 py-0.5 text-xs">EMEA</span>
+                          <span class="inline-flex items-center rounded bg-surface-200 px-2 py-0.5 text-xs">Americas</span>
+                          <span class="inline-flex items-center rounded bg-surface-200 px-2 py-0.5 text-xs">APAC</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="flex flex-wrap gap-2 pt-1">
+                      <button type="button" class="j-btn publish inline-flex items-center rounded-md bg-emerald-600 px-3 py-1.5 text-sm font-medium text-white shadow hover:bg-emerald-700">Publish</button>
+                      <button type="button" class="j-btn publish-now inline-flex items-center rounded-md bg-emerald-500 px-3 py-1.5 text-sm font-medium text-white shadow hover:bg-emerald-600">Publish Now</button>
+                      <button type="button" class="j-btn suppress inline-flex items-center rounded-md border border-surface-300 bg-gray-200 px-3 py-1.5 text-sm font-medium text-gray-900 shadow-sm hover:bg-gray-300">Suppress Send</button>
+                      <button type="button" class="j-btn translate inline-flex items-center rounded-md border border-surface-300 bg-white px-3 py-1.5 text-sm font-medium text-gray-900 shadow-sm hover:bg-surface-100">Translate</button>
+                    </div>
+
+                    <div class="flex flex-wrap gap-2">
+                      <button type="button" class="j-chip irrelevant inline-flex items-center rounded-full bg-rose-500 text-white px-3 py-1 text-xs font-semibold">Irrelevant</button>
+                      <button type="button" class="j-chip mismatch inline-flex items-center rounded-full bg-rose-500 text-white px-3 py-1 text-xs font-semibold">Company Mismatch</button>
+                      <button type="button" class="j-chip duplicate inline-flex items-center rounded-full bg-rose-500 text-white px-3 py-1 text-xs font-semibold">Duplicate</button>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                      <select disabled class="w-full rounded-md border border-surface-300 bg-white px-3 py-2 text-sm text-gray-700"><option>Publish As...</option></select>
+                      <select disabled class="w-full rounded-md border border-surface-300 bg-white px-3 py-2 text-sm text-gray-700"><option>Publish Now As...</option></select>
+                      <select disabled class="w-full rounded-md border border-surface-300 bg-white px-3 py-2 text-sm text-gray-700"><option>Suppress As...</option></select>
+                    </div>
+
+                    <div class="pt-3">
+                      <h3 class="text-sm font-semibold">Recent Activity</h3>
+                      <ul class="mt-2 text-sm text-gray-700 space-y-1">
+                        <li>• 17 minutes ago: Telefonica to Halve 2026 Dividend in Shift to Focus on Growth (Bloomberg) <span class="font-medium">[unread]</span></li>
+                        <li>• 18 minutes ago: Telefonica books lower than expected third quarter net profit - TradingView (Reuters - Global) <span class="font-medium">[unread]</span></li>
+                        <li>• 19 minutes ago: Telefónica reducirá su dividendo a la mitad en 2026, sin ampliación de capital (El Economista) <span class="font-medium">[unread]</span></li>
+                      </ul>
+                    </div>
+
+                    <div class="pt-3">
+                      <h3 class="text-sm font-semibold">Latest Published Activity</h3>
+                      <ul class="mt-2 text-sm text-gray-700 space-y-1">
+                        <li>• 3 days ago: Spain's Telefonica Closes Sale Of Ecuador's Unit For 329 Mln Euros - TradingView (Reuters - Global)</li>
+                        <li>• 3 days ago: Telefónica cae el 2,5% en bolsa ante la posible recorte de dividendo, según analistas (Infobae)</li>
+                        <li>• 3 days ago: Telefónica Brasil reports 13% net profit growth in Q3 (Telecompaper)</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="lg:col-span-2">
+                  <div class="rounded-lg border border-surface-200 bg-white p-4">
+                    <h2 class="font-semibold">Your decision</h2>
+                    <p class="text-sm text-gray-700 mt-1">Choose the company and whether this should be published on 9fin.</p>
+
+                    <div class="mt-4 space-y-4">
+                      <div>
+                        <label class="text-sm text-gray-700">Company</label>
+                        <select id="companySelect-2" class="mt-1 w-full rounded-md border border-surface-300 bg-white px-3 py-2 text-sm">
+                          <option value="">Select company...</option>
+                          <option>Telefonica</option>
+                          <option>Telefónica Brasil</option>
+                          <option>Telefónica Deutschland Holding</option>
+                          <option>Other / None</option>
+                        </select>
+                      </div>
+
+                      <div>
+                        <label class="text-sm text-gray-700">Decision</label>
+                        <div class="mt-2 grid grid-cols-2 gap-2">
+                          <label class="flex items-center gap-2 rounded-md border border-surface-300 px-3 py-2 text-sm">
+                            <input type="radio" name="decision-2" value="publish" class="h-4 w-4 text-brand-600" />
+                            <span>Publish</span>
+                          </label>
+                          <label class="flex items-center gap-2 rounded-md border border-surface-300 px-3 py-2 text-sm">
+                            <input type="radio" name="decision-2" value="irrelevant" class="h-4 w-4 text-brand-600" />
+                            <span>Irrelevant</span>
+                          </label>
+                          <label class="flex items-center gap-2 rounded-md border border-surface-300 px-3 py-2 text-sm">
+                            <input type="radio" name="decision-2" value="duplicate" class="h-4 w-4 text-brand-600" />
+                            <span>Duplicate</span>
+                          </label>
+                          <label class="flex items-center gap-2 rounded-md border border-surface-300 px-3 py-2 text-sm">
+                            <input type="radio" name="decision-2" value="suppress" class="h-4 w-4 text-brand-600" />
+                            <span>Suppress send</span>
+                          </label>
+                        </div>
+                      </div>
+
+                      <div>
+                        <label for="notes-2" class="text-sm text-gray-700">Notes (optional)</label>
+                        <textarea id="notes-2" rows="3" class="mt-1 w-full rounded-md border border-surface-300 px-3 py-2 text-sm" placeholder="Why publish / not publish? Any tagging notes?"></textarea>
+                      </div>
+
+                      <div class="flex gap-3">
+                        <button id="checkBtn-2" class="inline-flex items-center rounded-md bg-brand-700 px-4 py-2 text-sm font-medium text-white shadow hover:bg-brand-600">Check answer</button>
+                        <button id="resetBtn-2" class="inline-flex items-center rounded-md bg-surface-200 px-4 py-2 text-sm font-medium text-gray-900 hover:bg-surface-300">Reset</button>
+                      </div>
+
+                      <div id="result-2" class="hidden rounded-md border p-3 text-sm"></div>
+
+                      <details class="mt-2">
+                        <summary class="cursor-pointer text-sm text-brand-700 hover:underline">Show model answer</summary>
+                        <div class="mt-2 text-sm text-gray-700 space-y-2">
+                          <p><span class="font-semibold">Company:</span> Telefonica (parent). Not Telefónica Brasil or Deutschland.</p>
+                          <p><span class="font-semibold">Decision:</span> Publish. It’s a material dividend policy change relevant to credit/equity markets. Consider tagging dividend, corporate action, and linking related items.</p>
+                        </div>
+                      </details>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+            </div>
           </div>
 
-          <div class="border-t border-surface-200 pt-5">
-            <h2 class="font-semibold">Scenario 2 — Changes queue item</h2>
-            <p class="mt-2 text-sm text-gray-700">An Exchange Wire alert appears in Changes. Decide whether to publish and how to tag.</p>
-            <details class="mt-3">
-              <summary class="cursor-pointer text-sm text-brand-700 hover:underline">Show model answer</summary>
-              <div class="mt-2 text-sm text-gray-700">
-                <p>Verify issuer mapping; if a rating change was missed by aliases, rectify and publish with correct rating action tags; otherwise discard duplicates.</p>
-              </div>
-            </details>
-          </div>
-
-          <div class="border-t border-surface-200 pt-5">
-            <a href="/news.html" class="inline-flex items-center justify-center rounded-md bg-brand-700 px-4 py-2 text-sm font-medium text-white shadow hover:bg-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2">Back to News</a>
+          <!-- Bottom nav: Next question -->
+          <div class="mt-6 flex items-center justify-between">
+            <button id="prevQuestion" type="button" class="inline-flex items-center gap-2 rounded-md bg-gray-200 px-4 py-2 text-sm font-medium text-gray-500 cursor-not-allowed pointer-events-none select-none">← Previous</button>
+            <div class="text-sm text-gray-600">Question <span id="qIndex">1</span> of <span id="qTotal">10</span></div>
+            <button id="nextQuestion" type="button" class="inline-flex items-center gap-2 rounded-md bg-gray-200 px-4 py-2 text-sm font-medium text-gray-500 cursor-not-allowed pointer-events-none select-none">Next question →</button>
           </div>
         </div>
       </section>
@@ -88,23 +354,175 @@
     <footer class="mt-16 border-t border-surface-200">
       <div class="mx-auto max-w-7xl px-6 py-8 text-sm text-gray-500 flex items-center justify-between">
         <p>© <span id="year"></span> 9Boarding</p>
-        <a class="hover:text-brand-700" href="mailto:people@9fin.com">Contact People Ops</a>
+        <div class="flex items-center gap-4">
+          <a href="/news.html" class="hover:text-brand-700">← Back to News</a>
+          <a class="hover:text-brand-700" href="mailto:people@9fin.com">Contact People Ops</a>
+        </div>
       </div>
     </footer>
 
     <script>
+      // Footer year
       document.getElementById('year').textContent = new Date().getFullYear()
+
+      // Unlock guard based on news reading list
       const KEY = '9boarding:news:reading'
       const saved = JSON.parse(localStorage.getItem(KEY) || '{}')
       const unlocked = !!saved['notion:jessie-publisher']
       const guard = document.getElementById('guard')
       const content = document.getElementById('practiceContent')
+      if (unlocked) content.classList.remove('hidden')
+      else guard.classList.remove('hidden')
 
-      if (unlocked) {
-        content.classList.remove('hidden')
-      } else {
-        guard.classList.remove('hidden')
+      // Multi-question setup
+      const next = document.getElementById('nextQuestion')
+      const prev = document.getElementById('prevQuestion')
+      const track = document.getElementById('track')
+      const qIndexEl = document.getElementById('qIndex')
+      const qTotalEl = document.getElementById('qTotal')
+      const totalSlides = 10
+      qTotalEl.textContent = String(totalSlides)
+      let currentIndex = 0
+      const correctByIndex = Array.from({ length: totalSlides }, () => false)
+
+      function toggleEnable(el, enabled) {
+        if (!el) return
+        if (enabled) {
+          el.classList.remove('bg-gray-200','text-gray-500','cursor-not-allowed','pointer-events-none')
+          el.classList.add('bg-brand-700','text-white','hover:bg-brand-600')
+        } else {
+          el.classList.add('bg-gray-200','text-gray-500','cursor-not-allowed','pointer-events-none')
+          el.classList.remove('bg-brand-700','text-white','hover:bg-brand-600')
+        }
       }
+
+      function updateCounter() {
+        if (qIndexEl) qIndexEl.textContent = String(currentIndex + 1)
+      }
+
+      function updateNav() {
+        // Prev enabled if not on first
+        toggleEnable(prev, currentIndex > 0)
+        // Next enabled if current question answered correctly and not at last
+        const canNext = currentIndex < (totalSlides - 1) && !!correctByIndex[currentIndex]
+        toggleEnable(next, canNext)
+        updateCounter()
+      }
+
+  function setupQuestion({ suffix = '', groupName = 'decision', correct, index }) {
+        const companySelect = document.getElementById(`companySelect${suffix}`)
+        const checkBtn = document.getElementById(`checkBtn${suffix}`)
+        const resetBtn = document.getElementById(`resetBtn${suffix}`)
+        const result = document.getElementById(`result${suffix}`)
+        const notesId = suffix ? `notes${suffix}` : 'notes'
+
+        function showResult(ok, messages) {
+          if (!result) return
+          result.classList.remove('hidden')
+          result.classList.remove('border-green-200','bg-green-50','text-green-800','border-red-200','bg-red-50','text-red-800')
+          if (ok) {
+            result.classList.add('border-green-200','bg-green-50','text-green-800')
+            result.innerHTML = `<p class="font-semibold">Correct</p><ul class="list-disc pl-5 mt-1">${messages.map(m=>`<li>${m}</li>`).join('')}</ul>`
+          } else {
+            result.classList.add('border-red-200','bg-red-50','text-red-800')
+            result.innerHTML = `<p class="font-semibold">Not quite</p><ul class="list-disc pl-5 mt-1">${messages.map(m=>`<li>${m}</li>`).join('')}</ul>`
+          }
+        }
+
+        function getDecision() {
+          const el = document.querySelector(`input[name="${groupName}"]:checked`)
+          return el ? el.value : ''
+        }
+
+        checkBtn?.addEventListener('click', () => {
+          const messages = []
+          const answers = {
+            company: companySelect?.value || '',
+            decision: getDecision()
+          }
+          let ok = true
+          if (!answers.company) { ok = false; messages.push('Select a company.') }
+          if (!answers.decision) { ok = false; messages.push('Choose a decision (Publish, Irrelevant, Duplicate, Suppress).') }
+
+          if (answers.company && answers.company !== correct.company) {
+            ok = false
+            if (answers.company === 'Telefónica Brasil' || answers.company === 'Telefónica Deutschland Holding') {
+              messages.push('Company mismatch: The headline is about the parent company, Telefonica (not the Brasil/Deutschland subsidiaries).')
+            } else {
+              messages.push('Company mismatch: Pick Telefonica (parent).')
+            }
+          } else if (answers.company === correct.company) {
+            messages.push('Company looks right: Telefonica (parent).')
+          }
+
+          if (answers.decision && answers.decision !== correct.decision) {
+            ok = false
+            if (answers.decision === 'irrelevant') {
+              messages.push('Relevance: A dividend policy change is material; this should be published.')
+            } else if (answers.decision === 'duplicate') {
+              messages.push('Duplicate: Treat as duplicate only if an identical item was already processed; here it is new and material.')
+            } else if (answers.decision === 'suppress') {
+              messages.push('Suppress: Use suppress for delivery control, not to avoid publishing a material change.')
+            }
+          } else if (answers.decision === correct.decision) {
+            messages.push('Good call: Publish.')
+          }
+
+          showResult(ok, messages)
+
+          // Mark this question's correctness and update nav
+          if (typeof index === 'number') correctByIndex[index] = !!ok
+          updateNav()
+        })
+
+        resetBtn?.addEventListener('click', () => {
+          if (companySelect) companySelect.value = ''
+          const checked = document.querySelector(`input[name="${groupName}"]:checked`)
+          if (checked) checked.checked = false
+          const notes = document.getElementById(notesId)
+          if (notes) notes.value = ''
+          result?.classList.add('hidden')
+          if (typeof index === 'number') correctByIndex[index] = false
+          updateNav()
+        })
+      }
+
+      // Initialize questions (defaults)
+      setupQuestion({ suffix: '', groupName: 'decision', correct: { company: 'Telefonica', decision: 'publish' }, index: 0 })
+      setupQuestion({ suffix: '-2', groupName: 'decision-2', correct: { company: 'Telefonica', decision: 'publish' }, index: 1 })
+
+      // Initial nav state
+      updateNav()
+
+      // Next slides horizontally to the next question
+      next?.addEventListener('click', (e) => {
+        if (!next) return
+        if (next.classList.contains('pointer-events-none')) {
+          e.preventDefault();
+          return
+        }
+        e.preventDefault()
+        if (track && currentIndex < (totalSlides - 1)) {
+          currentIndex += 1
+          track.style.transform = `translateX(-${currentIndex * 100}%)`
+          updateNav()
+        }
+      })
+
+      // Prev slides back
+      prev?.addEventListener('click', (e) => {
+        if (!prev) return
+        if (prev.classList.contains('pointer-events-none')) {
+          e.preventDefault();
+          return
+        }
+        e.preventDefault()
+        if (track && currentIndex > 0) {
+          currentIndex -= 1
+          track.style.transform = `translateX(-${currentIndex * 100}%)`
+          updateNav()
+        }
+      })
     </script>
   </body>
 </html>
