@@ -1264,6 +1264,38 @@
         const resetBtn = document.getElementById(`resetBtn${suffix}`)
         const result = document.getElementById(`result${suffix}`)
         const notesId = suffix ? `notes${suffix}` : 'notes'
+        // Lock "Show model answer" until answered
+        const slideId = typeof index === 'number' ? `slide${index + 1}` : ''
+        const slideEl = slideId ? document.getElementById(slideId) : null
+        const detailsEl = slideEl ? slideEl.querySelector('details') : null
+        const summaryEl = detailsEl ? detailsEl.querySelector('summary') : null
+        let answered = false
+
+        function updateModelAnswerLock() {
+          if (!detailsEl || !summaryEl) return
+          if (answered) {
+            summaryEl.classList.remove('text-gray-400','cursor-not-allowed')
+            summaryEl.classList.add('text-brand-700','hover:underline')
+            summaryEl.removeAttribute('title')
+          } else {
+            detailsEl.open = false
+            summaryEl.classList.add('text-gray-400','cursor-not-allowed')
+            summaryEl.classList.remove('text-brand-700','hover:underline')
+            summaryEl.setAttribute('title','Locked — answer the question to view the model answer')
+          }
+        }
+
+        // Prevent opening details when locked
+        summaryEl?.addEventListener('click', (e) => {
+          if (!answered) {
+            e.preventDefault()
+            e.stopPropagation()
+          }
+        })
+        detailsEl?.addEventListener('toggle', () => {
+          if (!answered && detailsEl.open) detailsEl.open = false
+        })
+        updateModelAnswerLock()
 
         function showResult(ok, messages) {
           if (!result) return
@@ -1287,7 +1319,7 @@
           return el ? el.value : ''
         }
 
-        checkBtn?.addEventListener('click', () => {
+  checkBtn?.addEventListener('click', () => {
           const messages = []
           const answers = {
             company: companySelect?.value || '',
@@ -1343,6 +1375,10 @@
 
           showResult(ok, messages)
 
+          // Mark this as answered to unlock model answer
+          answered = true
+          updateModelAnswerLock()
+
           // Mark this question's correctness and update nav
           if (typeof index === 'number') correctByIndex[index] = !!ok
           updateNav()
@@ -1355,6 +1391,8 @@
           const notes = document.getElementById(notesId)
           if (notes) notes.value = ''
           result?.classList.add('hidden')
+          answered = false
+          updateModelAnswerLock()
           if (typeof index === 'number') correctByIndex[index] = false
           updateNav()
         })
