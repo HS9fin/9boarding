@@ -51,31 +51,279 @@
       </div>
 
       <section id="practiceContent" class="mt-8 hidden">
-        <div class="rounded-xl border border-surface-200 bg-white/80 shadow-sm p-5 space-y-6">
-          <div>
-            <h2 class="font-semibold">Scenario 1 — Ratings alias miss</h2>
-            <p class="mt-2 text-sm text-gray-700">A ratings change isn't linked to the issuer due to alias mismatch and lands in Changes. What steps do you take?</p>
-            <details class="mt-3">
-              <summary class="cursor-pointer text-sm text-brand-700 hover:underline">Show model answer</summary>
-              <div class="mt-2 text-sm text-gray-700">
-                <p>Fix issuer alias mapping; re-trigger linking; publish with correct rating action tags if material; otherwise discard as duplicate.</p>
-              </div>
-            </details>
-          </div>
+        <div class="rounded-xl border border-surface-200 bg-white/80 shadow-sm p-5">
+          <div id="sectionViewport" class="relative overflow-hidden transition-all duration-300 ease-in-out">
+            <div id="sectionTrack" class="flex flex-nowrap items-start transition-transform duration-300 ease-in-out">
+              <!-- Section 1: Basics — Q&A -->
+              <div class="min-w-full flex-none pr-0 md:pr-4">
+                <!-- Basics — Q&A -->
+                <div>
+            <h2 class="text-xl font-semibold">Basics — Q&A</h2>
+            <p class="mt-1 text-sm text-gray-700">Short answer questions. Type your answer and check — we’ll explain why it matters.</p>
 
-          <div class="border-t border-surface-200 pt-5">
-            <h2 class="font-semibold">Scenario 2 — Duplicate crawler update</h2>
-            <p class="mt-2 text-sm text-gray-700">A firm-site crawler posts a duplicate update. Decide whether to ignore or publish and why.</p>
-            <details class="mt-3">
-              <summary class="cursor-pointer text-sm text-brand-700 hover:underline">Show model answer</summary>
-              <div class="mt-2 text-sm text-gray-700">
-                <p>Discard exact duplicates; publish only if the new item adds material information (e.g., corrected figures) and ensure entity links are intact.</p>
+            <!-- Q1 -->
+            <div class="mt-4 rounded-lg border border-surface-200 p-4">
+              <h3 class="font-medium">1) What types of items appear in the News App changes queue?</h3>
+              <p class="mt-1 text-sm text-gray-600">Hint: Think about reports or alerts that aren’t automatically published but still may be important for clients.</p>
+              <textarea id="q1-input" rows="3" class="mt-3 w-full rounded-md border border-surface-300 px-3 py-2 text-sm" placeholder="Your answer..."></textarea>
+              <div class="mt-3 flex gap-3">
+                <button id="q1-check" class="inline-flex items-center rounded-md bg-brand-700 px-4 py-2 text-sm font-medium text-white hover:bg-brand-600">Check answer</button>
+                <button id="q1-reset" class="inline-flex items-center rounded-md bg-surface-200 px-4 py-2 text-sm font-medium text-gray-900 hover:bg-surface-300">Reset</button>
               </div>
-            </details>
-          </div>
+              <div id="q1-result" class="hidden mt-3 rounded-md border p-3 text-sm"></div>
+              
+            </div>
 
-          <div class="border-t border-surface-200 pt-5">
-            <a href="/news.html" class="inline-flex items-center justify-center rounded-md bg-brand-700 px-4 py-2 text-sm font-medium text-white shadow hover:bg-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2">Back to News</a>
+            <!-- Q2 -->
+            <div class="mt-4 rounded-lg border border-surface-200 p-4">
+              <h3 class="font-medium">2) Who is responsible for monitoring the News App changes queue during business hours?</h3>
+              <p class="mt-1 text-sm text-gray-600">Hint: It’s handled by a defined rotation group.</p>
+              <textarea id="q2-input" rows="2" class="mt-3 w-full rounded-md border border-surface-300 px-3 py-2 text-sm" placeholder="Your answer..."></textarea>
+              <div class="mt-3 flex gap-3">
+                <button id="q2-check" class="inline-flex items-center rounded-md bg-brand-700 px-4 py-2 text-sm font-medium text-white hover:bg-brand-600">Check answer</button>
+                <button id="q2-reset" class="inline-flex items-center rounded-md bg-surface-200 px-4 py-2 text-sm font-medium text-gray-900 hover:bg-surface-300">Reset</button>
+              </div>
+              <div id="q2-result" class="hidden mt-3 rounded-md border p-3 text-sm"></div>
+              
+            </div>
+
+            <!-- Q3 -->
+            <div class="mt-4 rounded-lg border border-surface-200 p-4">
+              <h3 class="font-medium">3) What decision does a team member need to make when reviewing an item in the queue?</h3>
+              <p class="mt-1 text-sm text-gray-600">Hint: You choose between two simple paths.</p>
+              <textarea id="q3-input" rows="2" class="mt-3 w-full rounded-md border border-surface-300 px-3 py-2 text-sm" placeholder="Your answer..."></textarea>
+              <div class="mt-3 flex gap-3">
+                <button id="q3-check" class="inline-flex items-center rounded-md bg-brand-700 px-4 py-2 text-sm font-medium text-white hover:bg-brand-600">Check answer</button>
+                <button id="q3-reset" class="inline-flex items-center rounded-md bg-surface-200 px-4 py-2 text-sm font-medium text-gray-900 hover:bg-surface-300">Reset</button>
+              </div>
+              <div id="q3-result" class="hidden mt-3 rounded-md border p-3 text-sm"></div>
+              
+            </div>
+
+            <!-- Q4 -->
+            <div class="mt-4 rounded-lg border border-surface-200 p-4">
+              <h3 class="font-medium">4) Why isn’t everything from the News App changes queue published automatically?</h3>
+              <p class="mt-1 text-sm text-gray-600">Hint: Think about editorial oversight and system constraints.</p>
+              <textarea id="q4-input" rows="3" class="mt-3 w-full rounded-md border border-surface-300 px-3 py-2 text-sm" placeholder="Your answer..."></textarea>
+              <div class="mt-3 flex gap-3">
+                <button id="q4-check" class="inline-flex items-center rounded-md bg-brand-700 px-4 py-2 text-sm font-medium text-white hover:bg-brand-600">Check answer</button>
+                <button id="q4-reset" class="inline-flex items-center rounded-md bg-surface-200 px-4 py-2 text-sm font-medium text-gray-900 hover:bg-surface-300">Reset</button>
+              </div>
+              <div id="q4-result" class="hidden mt-3 rounded-md border p-3 text-sm"></div>
+              
+            </div>
+
+            <!-- Q5 -->
+            <div class="mt-4 rounded-lg border border-surface-200 p-4">
+              <h3 class="font-medium">5) Why is the News App review process important to 9fin’s mission?</h3>
+              <p class="mt-1 text-sm text-gray-600">Hint: Consider our promise to clients.</p>
+              <textarea id="q5-input" rows="2" class="mt-3 w-full rounded-md border border-surface-300 px-3 py-2 text-sm" placeholder="Your answer..."></textarea>
+              <div class="mt-3 flex gap-3">
+                <button id="q5-check" class="inline-flex items-center rounded-md bg-brand-700 px-4 py-2 text-sm font-medium text-white hover:bg-brand-600">Check answer</button>
+                <button id="q5-reset" class="inline-flex items-center rounded-md bg-surface-200 px-4 py-2 text-sm font-medium text-gray-900 hover:bg-surface-300">Reset</button>
+              </div>
+              <div id="q5-result" class="hidden mt-3 rounded-md border p-3 text-sm"></div>
+              
+            </div>
+                  <div class="border-t border-surface-200 pt-5">
+                    <button id="nextSectionBtn" class="inline-flex items-center justify-center rounded-md bg-brand-700 px-4 py-2 text-sm font-medium text-white shadow hover:bg-brand-600">Next section →</button>
+                  </div>
+                </div> <!-- /Basics inner -->
+              </div> <!-- /Slide 1 container -->
+
+              <!-- Section 2: The Changes Queue (+ Monitoring, Page Changes, Fixing Crawlers) -->
+              <div class="min-w-full flex-none pl-0 md:pl-4">
+                <div>
+                  <h2 class="text-xl font-semibold">The Changes Queue</h2>
+                  <p class="mt-1 text-sm text-gray-700">Answer the basics of the queue and how to monitor effectively.</p>
+
+                  <!-- 1 -->
+                  <div class="mt-4 rounded-lg border border-surface-200 p-4">
+                    <h3 class="font-medium">1) What do the two main “Source Types” — EVENT and CHANGES — represent in the News App queue?</h3>
+                    <p class="mt-1 text-sm text-gray-600">Hint: One originates from official external venues; the other from internal monitoring.</p>
+                    <textarea id="q6-input" rows="3" class="mt-3 w-full rounded-md border border-surface-300 px-3 py-2 text-sm" placeholder="Your answer..."></textarea>
+                    <div class="mt-3 flex gap-3">
+                      <button id="q6-check" class="inline-flex items-center rounded-md bg-brand-700 px-4 py-2 text-sm font-medium text-white hover:bg-brand-600">Check answer</button>
+                      <button id="q6-reset" class="inline-flex items-center rounded-md bg-surface-200 px-4 py-2 text-sm font-medium text-gray-900 hover:bg-surface-300">Reset</button>
+                    </div>
+                    <div id="q6-result" class="hidden mt-3 rounded-md border p-3 text-sm"></div>
+                  </div>
+
+                  <!-- 2 -->
+                  <div class="mt-4 rounded-lg border border-surface-200 p-4">
+                    <h3 class="font-medium">2) How can you tell whether a change was automatically published, failed, or was blocked from publishing?</h3>
+                    <p class="mt-1 text-sm text-gray-600">Hint: Look for small status indicators near each item.</p>
+                    <div class="mt-3 space-y-2">
+                      <label class="flex items-center gap-2 text-sm"><input type="radio" name="q7" value="a" class="h-4 w-4"/> a) The background color of the item</label>
+                      <label class="flex items-center gap-2 text-sm"><input type="radio" name="q7" value="b" class="h-4 w-4"/> b) The “Notation indicating Publication Status” symbols</label>
+                      <label class="flex items-center gap-2 text-sm"><input type="radio" name="q7" value="c" class="h-4 w-4"/> c) The “Source Type” label</label>
+                    </div>
+                    <div class="mt-3 flex gap-3">
+                      <button id="q7-check" class="inline-flex items-center rounded-md bg-brand-700 px-4 py-2 text-sm font-medium text-white hover:bg-brand-600">Check answer</button>
+                      <button id="q7-reset" class="inline-flex items-center rounded-md bg-surface-200 px-4 py-2 text-sm font-medium text-gray-900 hover:bg-surface-300">Reset</button>
+                    </div>
+                    <div id="q7-result" class="hidden mt-3 rounded-md border p-3 text-sm"></div>
+                  </div>
+
+                  <!-- 3 -->
+                  <div class="mt-4 rounded-lg border border-surface-200 p-4">
+                    <h3 class="font-medium">3) What does it mean if an item in the queue has no publication status icon?</h3>
+                    <div class="mt-3 space-y-2">
+                      <label class="flex items-center gap-2 text-sm"><input type="radio" name="q8" value="a" class="h-4 w-4"/> a) It failed to publish</label>
+                      <label class="flex items-center gap-2 text-sm"><input type="radio" name="q8" value="b" class="h-4 w-4"/> b) It was rate limited</label>
+                      <label class="flex items-center gap-2 text-sm"><input type="radio" name="q8" value="c" class="h-4 w-4"/> c) It was deliberately set not to auto-publish</label>
+                    </div>
+                    <div class="mt-3 flex gap-3">
+                      <button id="q8-check" class="inline-flex items-center rounded-md bg-brand-700 px-4 py-2 text-sm font-medium text-white hover:bg-brand-600">Check answer</button>
+                      <button id="q8-reset" class="inline-flex items-center rounded-md bg-surface-200 px-4 py-2 text-sm font-medium text-gray-900 hover:bg-surface-300">Reset</button>
+                    </div>
+                    <div id="q8-result" class="hidden mt-3 rounded-md border p-3 text-sm"></div>
+                  </div>
+
+                  <!-- 4 -->
+                  <div class="mt-4 rounded-lg border border-surface-200 p-4">
+                    <h3 class="font-medium">4) Why are highlighted company names in yellow not a reliable confirmation that an item relates to a 9fin-covered company?</h3>
+                    <p class="mt-1 text-sm text-gray-600">Hint: Visual highlights are guidance, not confirmation.</p>
+                    <textarea id="q9-input" rows="2" class="mt-3 w-full rounded-md border border-surface-300 px-3 py-2 text-sm" placeholder="Your answer..."></textarea>
+                    <div class="mt-3 flex gap-3">
+                      <button id="q9-check" class="inline-flex items-center rounded-md bg-brand-700 px-4 py-2 text-sm font-medium text-white hover:bg-brand-600">Check answer</button>
+                      <button id="q9-reset" class="inline-flex items-center rounded-md bg-surface-200 px-4 py-2 text-sm font-medium text-gray-900 hover:bg-surface-300">Reset</button>
+                    </div>
+                    <div id="q9-result" class="hidden mt-3 rounded-md border p-3 text-sm"></div>
+                  </div>
+
+                  <h3 class="mt-6 text-sm font-semibold text-gray-700">⏱️ Section: Monitoring NewsApp</h3>
+
+                  <!-- 5 -->
+                  <div class="mt-3 rounded-lg border border-surface-200 p-4">
+                    <h4 class="font-medium">5) How often should you check the News App changes queue while on rotation?</h4>
+                    <div class="mt-3 space-y-2">
+                      <label class="flex items-center gap-2 text-sm"><input type="radio" name="q10" value="a" class="h-4 w-4"/> a) Every 5 minutes</label>
+                      <label class="flex items-center gap-2 text-sm"><input type="radio" name="q10" value="b" class="h-4 w-4"/> b) Every 15 minutes</label>
+                      <label class="flex items-center gap-2 text-sm"><input type="radio" name="q10" value="c" class="h-4 w-4"/> c) Every hour</label>
+                    </div>
+                    <div class="mt-3 flex gap-3">
+                      <button id="q10-check" class="inline-flex items-center rounded-md bg-brand-700 px-4 py-2 text-sm font-medium text-white hover:bg-brand-600">Check answer</button>
+                      <button id="q10-reset" class="inline-flex items-center rounded-md bg-surface-200 px-4 py-2 text-sm font-medium text-gray-900 hover:bg-surface-300">Reset</button>
+                    </div>
+                    <div id="q10-result" class="hidden mt-3 rounded-md border p-3 text-sm"></div>
+                  </div>
+
+                  <!-- 6 -->
+                  <div class="mt-3 rounded-lg border border-surface-200 p-4">
+                    <h4 class="font-medium">6) Why should you process items from the bottom to the top of the list?</h4>
+                    <p class="mt-1 text-sm text-gray-600">Hint: Aim to minimise the time from source to our publish.</p>
+                    <textarea id="q11-input" rows="2" class="mt-3 w-full rounded-md border border-surface-300 px-3 py-2 text-sm" placeholder="Your answer..."></textarea>
+                    <div class="mt-3 flex gap-3">
+                      <button id="q11-check" class="inline-flex items-center rounded-md bg-brand-700 px-4 py-2 text-sm font-medium text-white hover:bg-brand-600">Check answer</button>
+                      <button id="q11-reset" class="inline-flex items-center rounded-md bg-surface-200 px-4 py-2 text-sm font-medium text-gray-900 hover:bg-surface-300">Reset</button>
+                    </div>
+                    <div id="q11-result" class="hidden mt-3 rounded-md border p-3 text-sm"></div>
+                  </div>
+
+                  <!-- 7 -->
+                  <div class="mt-3 rounded-lg border border-surface-200 p-4">
+                    <h4 class="font-medium">7) When many changes have accumulated, which items should be prioritized first?</h4>
+                    <div class="mt-3 space-y-2">
+                      <label class="flex items-center gap-2 text-sm"><input type="radio" name="q12" value="a" class="h-4 w-4"/> a) Wire services</label>
+                      <label class="flex items-center gap-2 text-sm"><input type="radio" name="q12" value="b" class="h-4 w-4"/> b) Page Change Crawlers and Ratings Reports</label>
+                      <label class="flex items-center gap-2 text-sm"><input type="radio" name="q12" value="c" class="h-4 w-4"/> c) Social media sources</label>
+                    </div>
+                    <div class="mt-3 flex gap-3">
+                      <button id="q12-check" class="inline-flex items-center rounded-md bg-brand-700 px-4 py-2 text-sm font-medium text-white hover:bg-brand-600">Check answer</button>
+                      <button id="q12-reset" class="inline-flex items-center rounded-md bg-surface-200 px-4 py-2 text-sm font-medium text-gray-900 hover:bg-surface-300">Reset</button>
+                    </div>
+                    <div id="q12-result" class="hidden mt-3 rounded-md border p-3 text-sm"></div>
+                  </div>
+
+                  <h3 class="mt-6 text-sm font-semibold text-gray-700">🖥️ Section: Reviewing Page Change Items</h3>
+
+                  <!-- 8 -->
+                  <div class="mt-3 rounded-lg border border-surface-200 p-4">
+                    <h4 class="font-medium">8) What are three ways to identify what change was detected on a page?</h4>
+                    <p class="mt-1 text-sm text-gray-600">Hint: Consider built‑in comparison tools and verifying on the source.</p>
+                    <textarea id="q13-input" rows="3" class="mt-3 w-full rounded-md border border-surface-300 px-3 py-2 text-sm" placeholder="Your answer..."></textarea>
+                    <div class="mt-3 flex gap-3">
+                      <button id="q13-check" class="inline-flex items-center rounded-md bg-brand-700 px-4 py-2 text-sm font-medium text-white hover:bg-brand-600">Check answer</button>
+                      <button id="q13-reset" class="inline-flex items-center rounded-md bg-surface-200 px-4 py-2 text-sm font-medium text-gray-900 hover:bg-surface-300">Reset</button>
+                    </div>
+                    <div id="q13-result" class="hidden mt-3 rounded-md border p-3 text-sm"></div>
+                  </div>
+
+                  <!-- 9 -->
+                  <div class="mt-3 rounded-lg border border-surface-200 p-4">
+                    <h4 class="font-medium">9) What should you do if a change indicates that new material information has been published?</h4>
+                    <p class="mt-1 text-sm text-gray-600">Hint: Think about deduplication and making sure new material reaches clients.</p>
+                    <textarea id="q14-input" rows="3" class="mt-3 w-full rounded-md border border-surface-300 px-3 py-2 text-sm" placeholder="Your answer..."></textarea>
+                    <div class="mt-3 flex gap-3">
+                      <button id="q14-check" class="inline-flex items-center rounded-md bg-brand-700 px-4 py-2 text-sm font-medium text-white hover:bg-brand-600">Check answer</button>
+                      <button id="q14-reset" class="inline-flex items-center rounded-md bg-surface-200 px-4 py-2 text-sm font-medium text-gray-900 hover:bg-surface-300">Reset</button>
+                    </div>
+                    <div id="q14-result" class="hidden mt-3 rounded-md border p-3 text-sm"></div>
+                  </div>
+
+                  <!-- 10 -->
+                  <div class="mt-3 rounded-lg border border-surface-200 p-4">
+                    <h4 class="font-medium">10) What should you do if the change is not material or doesn’t add new information?</h4>
+                    <div class="mt-3 space-y-2">
+                      <label class="flex items-center gap-2 text-sm"><input type="radio" name="q15" value="a" class="h-4 w-4"/> a) Publish it anyway to be safe</label>
+                      <label class="flex items-center gap-2 text-sm"><input type="radio" name="q15" value="b" class="h-4 w-4"/> b) Fix the crawler if necessary, then mark as read</label>
+                      <label class="flex items-center gap-2 text-sm"><input type="radio" name="q15" value="c" class="h-4 w-4"/> c) Delete the change immediately</label>
+                    </div>
+                    <div class="mt-3 flex gap-3">
+                      <button id="q15-check" class="inline-flex items-center rounded-md bg-brand-700 px-4 py-2 text-sm font-medium text-white hover:bg-brand-600">Check answer</button>
+                      <button id="q15-reset" class="inline-flex items-center rounded-md bg-surface-200 px-4 py-2 text-sm font-medium text-gray-900 hover:bg-surface-300">Reset</button>
+                    </div>
+                    <div id="q15-result" class="hidden mt-3 rounded-md border p-3 text-sm"></div>
+                  </div>
+
+                  <!-- 11 -->
+                  <div class="mt-3 rounded-lg border border-surface-200 p-4">
+                    <h4 class="font-medium">11) Why should you be careful when marking a news item as “Irrelevant”?</h4>
+                    <p class="mt-1 text-sm text-gray-600">Hint: It can affect future visibility of similar‑titled items.</p>
+                    <textarea id="q16-input" rows="2" class="mt-3 w-full rounded-md border border-surface-300 px-3 py-2 text-sm" placeholder="Your answer..."></textarea>
+                    <div class="mt-3 flex gap-3">
+                      <button id="q16-check" class="inline-flex items-center rounded-md bg-brand-700 px-4 py-2 text-sm font-medium text-white hover:bg-brand-600">Check answer</button>
+                      <button id="q16-reset" class="inline-flex items-center rounded-md bg-surface-200 px-4 py-2 text-sm font-medium text-gray-900 hover:bg-surface-300">Reset</button>
+                    </div>
+                    <div id="q16-result" class="hidden mt-3 rounded-md border p-3 text-sm"></div>
+                  </div>
+
+                  <h3 class="mt-6 text-sm font-semibold text-gray-700">⚙️ Section: Fixing Crawlers</h3>
+
+                  <!-- 12 -->
+                  <div class="mt-3 rounded-lg border border-surface-200 p-4">
+                    <h4 class="font-medium">12) What are some reasons a crawler might generate false or broken items?</h4>
+                    <p class="mt-1 text-sm text-gray-600">Hint: Consider site changes or configuration issues.</p>
+                    <textarea id="q17-input" rows="3" class="mt-3 w-full rounded-md border border-surface-300 px-3 py-2 text-sm" placeholder="Your answer..."></textarea>
+                    <div class="mt-3 flex gap-3">
+                      <button id="q17-check" class="inline-flex items-center rounded-md bg-brand-700 px-4 py-2 text-sm font-medium text-white hover:bg-brand-600">Check answer</button>
+                      <button id="q17-reset" class="inline-flex items-center rounded-md bg-surface-200 px-4 py-2 text-sm font-medium text-gray-900 hover:bg-surface-300">Reset</button>
+                    </div>
+                    <div id="q17-result" class="hidden mt-3 rounded-md border p-3 text-sm"></div>
+                  </div>
+
+                  <!-- 13 -->
+                  <div class="mt-3 rounded-lg border border-surface-200 p-4">
+                    <h4 class="font-medium">13) What should you do if you spot a broken crawler that you can’t fix quickly?</h4>
+                    <div class="mt-3 space-y-2">
+                      <label class="flex items-center gap-2 text-sm"><input type="radio" name="q18" value="a" class="h-4 w-4"/> a) Delete it immediately</label>
+                      <label class="flex items-center gap-2 text-sm"><input type="radio" name="q18" value="b" class="h-4 w-4"/> b) Leave a note and tick “Needs to be reviewed” in the crawler’s page</label>
+                    </div>
+                    <div class="mt-3 flex gap-3">
+                      <button id="q18-check" class="inline-flex items-center rounded-md bg-brand-700 px-4 py-2 text-sm font-medium text-white hover:bg-brand-600">Check answer</button>
+                      <button id="q18-reset" class="inline-flex items-center rounded-md bg-surface-200 px-4 py-2 text-sm font-medium text-gray-900 hover:bg-surface-300">Reset</button>
+                    </div>
+                    <div id="q18-result" class="hidden mt-3 rounded-md border p-3 text-sm"></div>
+                  </div>
+                </div>
+
+                <div class="border-t border-surface-200 pt-5 flex items-center gap-3">
+                  <button id="prevSectionBtn" class="inline-flex items-center justify-center rounded-md bg-surface-200 px-4 py-2 text-sm font-medium text-gray-900 hover:bg-surface-300">← Previous section</button>
+                  <a href="/news.html" class="ml-auto inline-flex items-center justify-center rounded-md bg-brand-700 px-4 py-2 text-sm font-medium text-white shadow hover:bg-brand-600">Back to News</a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -101,6 +349,253 @@
       } else {
         guard.classList.remove('hidden')
       }
+      // Slider navigation
+      const track = document.getElementById('sectionTrack')
+      const viewport = document.getElementById('sectionViewport')
+      let sectionIndex = 0
+      let resizeObs
+      function observeActive() {
+        if(!track || !viewport) return
+        const active = track.children?.[sectionIndex]
+        if(!active) return
+        if(resizeObs) resizeObs.disconnect()
+        resizeObs = new ResizeObserver(()=>{
+          viewport.style.height = active.offsetHeight + 'px'
+        })
+        resizeObs.observe(active)
+        // immediate set
+        viewport.style.height = active.offsetHeight + 'px'
+      }
+      function updateViewportHeight(){
+        observeActive()
+      }
+      function goTop() {
+        try { window.scrollTo({ top: 0, behavior: 'smooth' }) } catch { window.scrollTo(0,0) }
+      }
+      document.getElementById('nextSectionBtn')?.addEventListener('click',()=>{
+  sectionIndex = 1
+  track.style.transform = 'translateX(-100%)'
+  setTimeout(updateViewportHeight, 160) // allow slide transition before measuring
+        goTop()
+      })
+      document.getElementById('prevSectionBtn')?.addEventListener('click',()=>{
+  sectionIndex = 0
+  track.style.transform = 'translateX(0)'
+  setTimeout(updateViewportHeight, 160)
+        goTop()
+      })
+      // Initialize viewport height when content unlocks and on resize
+  document.addEventListener('DOMContentLoaded', ()=> setTimeout(updateViewportHeight,120))
+  if (unlocked) setTimeout(updateViewportHeight, 120)
+  window.addEventListener('resize', ()=> setTimeout(updateViewportHeight, 120))
+      // Q&A logic
+      function norm(s){return (s||'').toLowerCase().trim()}
+      function setResult(el, ok, html){
+        el.classList.remove('hidden','border-green-200','bg-green-50','text-green-800','border-red-200','bg-red-50','text-red-800')
+        if(ok){el.classList.add('border-green-200','bg-green-50','text-green-800')} else {el.classList.add('border-red-200','bg-red-50','text-red-800')}
+        el.innerHTML = html
+      }
+
+      // Q1
+      document.getElementById('q1-check')?.addEventListener('click',()=>{
+        const ans = norm(document.getElementById('q1-input')?.value)
+        const buckets=[/rating|ratings|report/,/exchange\s*wire|alert/,/firm|investment\s*firm|website|site/,/crawl|crawler|scrape|auto\s*publish|not\s*auto/]
+        const hits=buckets.reduce((n,re)=>n+(re.test(ans)?1:0),0)
+        const ok=hits>=2
+        const why='<div class="mt-3 pt-2 border-t"><p class="font-medium">Why this matters</p><p class="mt-1">Recognizing the queue contents lets you prioritise non-auto items so important updates still reach clients.</p></div>'
+  setResult(document.getElementById('q1-result'),ok,
+          (ok?'<p class="font-semibold">Correct</p><p class="mt-1">You referenced multiple valid item types.</p>':'<p class="font-semibold">Not quite</p><p class="mt-1">Mention at least two: ratings reports, Exchange Wire alerts, firm website updates, crawler-detected changes.</p>')+why)
+  updateViewportHeight()
+      })
+  document.getElementById('q1-reset')?.addEventListener('click',()=>{const t=document.getElementById('q1-input'); if(t) t.value=''; document.getElementById('q1-result')?.classList.add('hidden')})
+      // Q2
+      document.getElementById('q2-check')?.addEventListener('click',()=>{
+        const ans=norm(document.getElementById('q2-input')?.value)
+        const ok=/rotation\s*a/.test(ans)
+        const why='<div class="mt-3 pt-2 border-t"><p class="font-medium">Why this matters</p><p class="mt-1">Clear team ownership prevents coverage gaps during business hours.</p></div>'
+  setResult(document.getElementById('q2-result'),ok,
+          (ok?'<p class="font-semibold">Correct</p><p class="mt-1">Rotation A monitors it.</p>':'<p class="font-semibold">Not quite</p><p class="mt-1">It is the Rotation A team.</p>')+why)
+  updateViewportHeight()
+      })
+  document.getElementById('q2-reset')?.addEventListener('click',()=>{const t=document.getElementById('q2-input'); if(t) t.value=''; document.getElementById('q2-result')?.classList.add('hidden')})
+      // Q3
+      document.getElementById('q3-check')?.addEventListener('click',()=>{
+        const ans=norm(document.getElementById('q3-input')?.value)
+        const hasPub=/publish|post|send/.test(ans)
+        const hasNo=/(not|don\'t|dont|no|do\s*not|irrelevant)/.test(ans)
+        const ok=hasPub&&hasNo
+        const why='<div class="mt-3 pt-2 border-t"><p class="font-medium">Why this matters</p><p class="mt-1">Deciding publish vs not keeps feeds high-signal for clients.</p></div>'
+  setResult(document.getElementById('q3-result'),ok,
+          (ok?'<p class="font-semibold">Correct</p><p class="mt-1">The decision is publish or don\'t publish.</p>':'<p class="font-semibold">Not quite</p><p class="mt-1">State both outcomes: publish it or do not publish it.</p>')+why)
+  updateViewportHeight()
+      })
+  document.getElementById('q3-reset')?.addEventListener('click',()=>{const t=document.getElementById('q3-input'); if(t) t.value=''; document.getElementById('q3-result')?.classList.add('hidden')})
+      // Q4
+      document.getElementById('q4-check')?.addEventListener('click',()=>{
+        const ans=norm(document.getElementById('q4-input')?.value)
+        const hasQuality=/quality|accuracy|review|human/.test(ans)
+        const hasTech=/technical|editorial|limit|cannot|can\'t|automation/.test(ans)
+        const hasAuto=/auto/.test(ans)
+        const ok=(hasQuality&&hasTech)||(hasQuality&&hasAuto)||(hasTech&&hasAuto)
+        const why='<div class="mt-3 pt-2 border-t"><p class="font-medium">Why this matters</p><p class="mt-1">Manual review prevents low-quality or malformed items from reaching clients.</p></div>'
+  setResult(document.getElementById('q4-result'),ok,
+          (ok?'<p class="font-semibold">Correct</p><p class="mt-1">Quality control + technical/editorial constraints.</p>':'<p class="font-semibold">Not quite</p><p class="mt-1">Highlight quality control and technical/editorial limits — not everything should auto-publish.</p>')+why)
+  updateViewportHeight()
+      })
+  document.getElementById('q4-reset')?.addEventListener('click',()=>{const t=document.getElementById('q4-input'); if(t) t.value=''; document.getElementById('q4-result')?.classList.add('hidden')})
+      // Q5
+      document.getElementById('q5-check')?.addEventListener('click',()=>{
+        const ans=norm(document.getElementById('q5-input')?.value)
+        const hasTrust=/trust|reputation|first\s*source|source\s*of\s*truth/.test(ans)
+        const hasAccuracy=/accurate|accuracy|selective|quality/.test(ans)
+        const ok=hasTrust&&hasAccuracy
+        const why='<div class="mt-3 pt-2 border-t"><p class="font-medium">Why this matters</p><p class="mt-1">Maintaining trust and accuracy underpins client reliance on 9fin as first source.</p></div>'
+  setResult(document.getElementById('q5-result'),ok,
+          (ok?'<p class="font-semibold">Correct</p><p class="mt-1">It protects trust and accuracy.</p>':'<p class="font-semibold">Not quite</p><p class="mt-1">Mention trust/reputation and accuracy/selective publishing.</p>')+why)
+  updateViewportHeight()
+      })
+  document.getElementById('q5-reset')?.addEventListener('click',()=>{const t=document.getElementById('q5-input'); if(t) t.value=''; document.getElementById('q5-result')?.classList.add('hidden')})
+
+      // --- Section 2 validation ---
+      function setOK(el, ok, body){
+        el.classList.remove('hidden','border-green-200','bg-green-50','text-green-800','border-red-200','bg-red-50','text-red-800')
+        if (ok) el.classList.add('border-green-200','bg-green-50','text-green-800'); else el.classList.add('border-red-200','bg-red-50','text-red-800')
+        el.innerHTML = body
+      }
+      // Q6
+      document.getElementById('q6-check')?.addEventListener('click',()=>{
+        const ans = norm(document.getElementById('q6-input')?.value)
+        const hasEvent = /event|exchange|rating/.test(ans)
+        const hasChanges = /change|crawler|page|website/.test(ans)
+        const ok = hasEvent && hasChanges
+        const why = '<div class="mt-3 pt-2 border-t"><p class="font-medium">Why this matters</p><p class="mt-1">Understanding sources helps you triage and debug quickly.</p></div>'
+  setOK(document.getElementById('q6-result'), ok,
+          (ok?'<p class="font-semibold">Correct</p><p class="mt-1">EVENT = exchanges/ratings; CHANGES = web crawlers.</p>':'<p class="font-semibold">Not quite</p><p class="mt-1">EVENT items come from exchanges/ratings; CHANGES from web crawlers.</p>')+why)
+  updateViewportHeight()
+      })
+      document.getElementById('q6-reset')?.addEventListener('click',()=>{const t=document.getElementById('q6-input'); if(t) t.value=''; document.getElementById('q6-result')?.classList.add('hidden')})
+      // Q7
+      document.getElementById('q7-check')?.addEventListener('click',()=>{
+        const v = document.querySelector('input[name="q7"]:checked')?.value
+        const ok = v === 'b'
+        const why = '<div class="mt-3 pt-2 border-t"><p class="font-medium">Why this matters</p><p class="mt-1">Status notation saves time by showing if action is required.</p></div>'
+  setOK(document.getElementById('q7-result'), ok,
+          (ok?'<p class="font-semibold">Correct</p><p class="mt-1">Look for the publication status symbols.</p>':'<p class="font-semibold">Not quite</p><p class="mt-1">Use the Notation indicating Publication Status symbols.</p>')+why)
+  updateViewportHeight()
+      })
+      document.getElementById('q7-reset')?.addEventListener('click',()=>{const c=document.querySelector('input[name="q7"]:checked'); if(c) c.checked=false; document.getElementById('q7-result')?.classList.add('hidden')})
+      // Q8
+      document.getElementById('q8-check')?.addEventListener('click',()=>{
+        const v = document.querySelector('input[name="q8"]:checked')?.value
+        const ok = v === 'c'
+        const why = '<div class="mt-3 pt-2 border-t"><p class="font-medium">Why this matters</p><p class="mt-1">Knowing non-auto items avoids chasing non-issues.</p></div>'
+  setOK(document.getElementById('q8-result'), ok,
+          (ok?'<p class="font-semibold">Correct</p>':'<p class="font-semibold">Not quite</p>')+'<p class="mt-1">No icon = deliberately not auto-published.</p>'+why)
+  updateViewportHeight()
+      })
+      document.getElementById('q8-reset')?.addEventListener('click',()=>{const c=document.querySelector('input[name="q8"]:checked'); if(c) c.checked=false; document.getElementById('q8-result')?.classList.add('hidden')})
+      // Q9
+      document.getElementById('q9-check')?.addEventListener('click',()=>{
+        const ans = norm(document.getElementById('q9-input')?.value)
+        const ok = /guide|hint|not\s*guarantee|alias|name\s*match|false\s*positive/.test(ans)
+        const why = '<div class="mt-3 pt-2 border-t"><p class="font-medium">Why this matters</p><p class="mt-1">Prevents false confidence — you still need to verify the entity before publishing.</p></div>'
+  setOK(document.getElementById('q9-result'), ok,
+          (ok?'<p class="font-semibold">Correct</p><p class="mt-1">Highlights are guidance only and can mis-match names.</p>':'<p class="font-semibold">Not quite</p><p class="mt-1">Yellow highlights are only a guide and can be false positives; verify coverage.</p>')+why)
+  updateViewportHeight()
+      })
+      document.getElementById('q9-reset')?.addEventListener('click',()=>{const t=document.getElementById('q9-input'); if(t) t.value=''; document.getElementById('q9-result')?.classList.add('hidden')})
+      // Q10
+      document.getElementById('q10-check')?.addEventListener('click',()=>{
+        const v = document.querySelector('input[name="q10"]:checked')?.value
+        const ok = v === 'b'
+        const why = '<div class="mt-3 pt-2 border-t"><p class="font-medium">Why this matters</p><p class="mt-1">Regular checks keep delays low and clients current.</p></div>'
+  setOK(document.getElementById('q10-result'), ok,
+          (ok?'<p class="font-semibold">Correct</p><p class="mt-1">Every 15 minutes.</p>':'<p class="font-semibold">Not quite</p><p class="mt-1">Check every 15 minutes while on rotation.</p>')+why)
+  updateViewportHeight()
+      })
+      document.getElementById('q10-reset')?.addEventListener('click',()=>{const c=document.querySelector('input[name="q10"]:checked'); if(c) c.checked=false; document.getElementById('q10-result')?.classList.add('hidden')})
+      // Q11
+      document.getElementById('q11-check')?.addEventListener('click',()=>{
+        const ans = norm(document.getElementById('q11-input')?.value)
+        const ok = /latency|delay|oldest|fifo|first\s*in|time\s*to\s*publish|ttl/.test(ans)
+        const why = '<div class="mt-3 pt-2 border-t"><p class="font-medium">Why this matters</p><p class="mt-1">Working oldest-first reduces client-perceived latency.</p></div>'
+  setOK(document.getElementById('q11-result'), ok,
+          (ok?'<p class="font-semibold">Correct</p><p class="mt-1">Bottom-to-top minimises delay from source to publish.</p>':'<p class="font-semibold">Not quite</p><p class="mt-1">We work oldest-first to reduce the time between source and our publish time.</p>')+why)
+  updateViewportHeight()
+      })
+      document.getElementById('q11-reset')?.addEventListener('click',()=>{const t=document.getElementById('q11-input'); if(t) t.value=''; document.getElementById('q11-result')?.classList.add('hidden')})
+      // Q12
+      document.getElementById('q12-check')?.addEventListener('click',()=>{
+        const v = document.querySelector('input[name="q12"]:checked')?.value
+        const ok = v === 'b'
+        const why = '<div class="mt-3 pt-2 border-t"><p class="font-medium">Why this matters</p><p class="mt-1">Prioritising material sources keeps clients informed fastest.</p></div>'
+  setOK(document.getElementById('q12-result'), ok,
+          (ok?'<p class="font-semibold">Correct</p><p class="mt-1">Page Change Crawlers and Ratings first.</p>':'<p class="font-semibold">Not quite</p><p class="mt-1">Prioritise Page Change Crawlers and Ratings Reports.</p>')+why)
+  updateViewportHeight()
+      })
+      document.getElementById('q12-reset')?.addEventListener('click',()=>{const c=document.querySelector('input[name="q12"]:checked'); if(c) c.checked=false; document.getElementById('q12-result')?.classList.add('hidden')})
+      // Q13
+      document.getElementById('q13-check')?.addEventListener('click',()=>{
+        const ans = norm(document.getElementById('q13-input')?.value)
+        const hits = [/diff/,/preview/,/visit|live|open/].reduce((n,re)=>n+(re.test(ans)?1:0),0)
+        const ok = hits>=2
+        const why = '<div class="mt-3 pt-2 border-t"><p class="font-medium">Why this matters</p><p class="mt-1">Verifying the exact change avoids false positives and wasted time.</p></div>'
+  setOK(document.getElementById('q13-result'), ok,
+          (ok?'<p class="font-semibold">Correct</p><p class="mt-1">Use Show Diff, Preview Change, and visit the live page.</p>':'<p class="font-semibold">Not quite</p><p class="mt-1">Name at least two of: Show Diff, Preview Change, visit the live page.</p>')+why)
+  updateViewportHeight()
+      })
+      document.getElementById('q13-reset')?.addEventListener('click',()=>{const t=document.getElementById('q13-input'); if(t) t.value=''; document.getElementById('q13-result')?.classList.add('hidden')})
+      // Q14
+      document.getElementById('q14-check')?.addEventListener('click',()=>{
+        const ans = norm(document.getElementById('q14-input')?.value)
+        const ok = /check|already|exists|on\s*9fin/.test(ans) && /publish|post|upload|materials/.test(ans)
+        const why = '<div class="mt-3 pt-2 border-t"><p class="font-medium">Why this matters</p><p class="mt-1">Ensures we surface new material info quickly without duplicating.</p></div>'
+  setOK(document.getElementById('q14-result'), ok,
+          (ok?'<p class="font-semibold">Correct</p><p class="mt-1">Check if it\'s already on 9fin, then publish or upload materials.</p>':'<p class="font-semibold">Not quite</p><p class="mt-1">First check if it\'s already on 9fin; if not, publish and upload extra materials if needed.</p>')+why)
+  updateViewportHeight()
+      })
+      document.getElementById('q14-reset')?.addEventListener('click',()=>{const t=document.getElementById('q14-input'); if(t) t.value=''; document.getElementById('q14-result')?.classList.add('hidden')})
+      // Q15
+      document.getElementById('q15-check')?.addEventListener('click',()=>{
+        const v = document.querySelector('input[name="q15"]:checked')?.value
+        const ok = v === 'b'
+        const why = '<div class="mt-3 pt-2 border-t"><p class="font-medium">Why this matters</p><p class="mt-1">Avoids clutter while improving crawler quality.</p></div>'
+  setOK(document.getElementById('q15-result'), ok,
+          (ok?'<p class="font-semibold">Correct</p><p class="mt-1">Fix crawler if needed, then mark as read.</p>':'<p class="font-semibold">Not quite</p><p class="mt-1">Don\'t publish noise; fix the crawler and mark as read.</p>')+why)
+  updateViewportHeight()
+      })
+      document.getElementById('q15-reset')?.addEventListener('click',()=>{const c=document.querySelector('input[name="q15"]:checked'); if(c) c.checked=false; document.getElementById('q15-result')?.classList.add('hidden')})
+      // Q16
+      document.getElementById('q16-check')?.addEventListener('click',()=>{
+        const ans = norm(document.getElementById('q16-input')?.value)
+        const ok = /hide|future|suppress|title|won't|wont|appear/.test(ans)
+        const why = '<div class="mt-3 pt-2 border-t"><p class="font-medium">Why this matters</p><p class="mt-1">Irrelevant suppresses future items by title — use with care.</p></div>'
+  setOK(document.getElementById('q16-result'), ok,
+          (ok?'<p class="font-semibold">Correct</p><p class="mt-1">Marking Irrelevant can hide future items with the same title.</p>':'<p class="font-semibold">Not quite</p><p class="mt-1">It may prevent future items with the same title from appearing.</p>')+why)
+  updateViewportHeight()
+      })
+      document.getElementById('q16-reset')?.addEventListener('click',()=>{const t=document.getElementById('q16-input'); if(t) t.value=''; document.getElementById('q16-result')?.classList.add('hidden')})
+      // Q17
+      document.getElementById('q17-check')?.addEventListener('click',()=>{
+        const ans = norm(document.getElementById('q17-input')?.value)
+        const hits = [/redesign|layout|dom|structure/,/selector|xpath|regex|rule/,/cookie|consent|gate|block|captcha/].reduce((n,re)=>n+(re.test(ans)?1:0),0)
+        const ok = hits>=1
+        const why = '<div class="mt-3 pt-2 border-t"><p class="font-medium">Why this matters</p><p class="mt-1">Spotting root causes speeds fixes and reduces noise.</p></div>'
+  setOK(document.getElementById('q17-result'), ok,
+          (ok?'<p class="font-semibold">Correct</p><p class="mt-1">Common causes: site redesigns, selector/rule errors, blocking/captcha.</p>':'<p class="font-semibold">Not quite</p><p class="mt-1">Examples: website redesigns, bad selectors/rules, blocking/captcha.</p>')+why)
+  updateViewportHeight()
+      })
+      document.getElementById('q17-reset')?.addEventListener('click',()=>{const t=document.getElementById('q17-input'); if(t) t.value=''; document.getElementById('q17-result')?.classList.add('hidden')})
+      // Q18
+      document.getElementById('q18-check')?.addEventListener('click',()=>{
+        const v = document.querySelector('input[name="q18"]:checked')?.value
+        const ok = v === 'b'
+        const why = '<div class="mt-3 pt-2 border-t"><p class="font-medium">Why this matters</p><p class="mt-1">Notes + review ensure broken crawlers are tracked and triaged.</p></div>'
+  setOK(document.getElementById('q18-result'), ok,
+          (ok?'<p class="font-semibold">Correct</p><p class="mt-1">Leave a note and tick “Needs to be reviewed”.</p>':'<p class="font-semibold">Not quite</p><p class="mt-1">Don\'t delete immediately — leave a note and tick “Needs to be reviewed”.</p>')+why)
+  updateViewportHeight()
+      })
+      document.getElementById('q18-reset')?.addEventListener('click',()=>{const c=document.querySelector('input[name="q18"]:checked'); if(c) c.checked=false; document.getElementById('q18-result')?.classList.add('hidden')})
     </script>
   </body>
 </html>

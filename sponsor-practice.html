@@ -51,30 +51,93 @@
       </div>
 
       <section id="practiceContent" class="mt-8 hidden">
-        <div class="rounded-xl border border-surface-200 bg-white/80 shadow-sm p-5 space-y-6">
-          <div>
-            <h2 class="font-semibold">Scenario 1 — Slack alert triage</h2>
-            <p class="mt-2 text-sm text-gray-700">A Slack bot posts: "Sponsor X exits position in YCo". Decide whether to publish and how to tag and link entities.</p>
-            <details class="mt-3">
-              <summary class="cursor-pointer text-sm text-brand-700 hover:underline">Show model answer</summary>
-              <div class="mt-2 text-sm text-gray-700">
-                <p>Publish with appropriate sponsor entity tagging; update YCo profile if a material ownership change; consider cross-linking to Deals if relevant.</p>
+        <div class="rounded-xl border border-surface-200 bg-white/80 shadow-sm p-5">
+          <div class="grid grid-cols-1 lg:grid-cols-5 gap-6">
+            <!-- Left: Slack-like Sponsor News alert -->
+            <div class="lg:col-span-3">
+              <div class="rounded-lg border border-surface-200 bg-white p-4">
+                <div class="flex items-center gap-2 text-sm text-gray-600">
+                  <span class="inline-flex items-center gap-1"><span class="font-medium">Sponsor News</span> <span class="text-xs px-1.5 py-0.5 rounded bg-surface-200">APP</span></span>
+                  <span class="ml-auto">9:56 PM</span>
+                </div>
+                <div class="mt-3 rounded-md border border-surface-200 bg-white p-3 border-l-4 border-[#1d9bd1]">
+                  <div class="text-sm">
+                    <a href="https://www.bowmark.com/news-and-insights" target="_blank" class="text-[#1d9bd1] hover:underline">ChangeDetection.io Notification -</a>
+                    <a href="https://www.bowmark.com/news-and-insights" target="_blank" class="text-[#1d9bd1] hover:underline"> https://www.bowmark.com/news-and-insights</a>
+                    <p class="mt-1 text-gray-700">https://www.bowmark.com/news-and-insights had a change.</p>
+                    <div class="my-3 text-gray-400">---</div>
+                    <pre class="whitespace-pre-wrap text-[13px] leading-5 font-mono text-gray-800"><span style="background-color:#eaf2c2; color:#406619;">4 November 2025</span>
+<span style="background-color:#eaf2c2; color:#406619;"></span>
+<span style="background-color:#eaf2c2; color:#406619;">Bowmark Capital announces sale of software provider Totalmobile to Five Arrows and DBAG</span>
+<span style="background-color:#eaf2c2; color:#406619;"></span>
+<span style="background-color:#eaf2c2; color:#406619;">Read more</span>
+</pre>
+                    <div class="mt-1 text-gray-500 text-xs">Show more</div>
+                    <div class="mt-3 text-sm">
+                      <a href="https://www.bowmark.com/news/bowmark-capital-announces-sale-of-software-provider-totalmobile-to-five-arrows-and-dbag" target="_blank" class="text-[#1d9bd1] hover:underline">Open article → https://www.bowmark.com/news/bowmark-capital-announces-sale-of-software-provider-totalmobile-to-five-arrows-and-dbag</a>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </details>
+            </div>
+
+            <!-- Right: Decision panel -->
+            <div class="lg:col-span-2">
+              <div class="rounded-lg border border-surface-200 bg-white p-4">
+                <h2 class="font-semibold">Your decision</h2>
+                <p class="text-sm text-gray-700 mt-1">Answer these in order: decide Publish vs Irrelevant, pick the company, then choose the sponsor to add.</p>
+
+                <div class="mt-4 space-y-4">
+                  <div>
+                    <label class="text-sm text-gray-700">Decision</label>
+                    <div class="mt-2 grid grid-cols-2 gap-2">
+                      <label class="flex items-center gap-2 rounded-md border border-surface-300 px-3 py-2 text-sm"><input type="radio" name="sponsor-decision" value="publish" class="h-4 w-4 text-brand-600" /><span>Publish</span></label>
+                      <label class="flex items-center gap-2 rounded-md border border-surface-300 px-3 py-2 text-sm"><input type="radio" name="sponsor-decision" value="irrelevant" class="h-4 w-4 text-brand-600" /><span>Irrelevant</span></label>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label class="text-sm text-gray-700">What company is it referring to?</label>
+                    <select id="companySelect" class="mt-1 w-full rounded-md border border-surface-300 bg-white px-3 py-2 text-sm">
+                      <option value="">Select company...</option>
+                      <option>Totalmobile</option>
+                      <option>Bowmark Capital</option>
+                      <option>Five Arrows</option>
+                      <option>DBAG</option>
+                      <option>Other / None</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label class="text-sm text-gray-700">Who is the sponsor to add to that company?</label>
+                    <select id="sponsorSelect" multiple size="4" class="mt-1 w-full rounded-md border border-surface-300 bg-white px-3 py-2 text-sm">
+                      <option>Five Arrows</option>
+                      <option>DBAG</option>
+                      <option>Bowmark Capital</option>
+                      <option>Other / None</option>
+                    </select>
+                    <p class="mt-1 text-xs text-gray-500">Tip: Hold Cmd (⌘) or Shift to select multiple sponsors.</p>
+                  </div>
+
+                  <div>
+                    <label for="notes" class="text-sm text-gray-700">Notes (optional)</label>
+                    <textarea id="notes" rows="3" class="mt-1 w-full rounded-md border border-surface-300 px-3 py-2 text-sm"></textarea>
+                  </div>
+
+                  <div class="flex gap-3">
+                    <button id="checkBtn" class="inline-flex items-center rounded-md bg-brand-700 px-4 py-2 text-sm font-medium text-white shadow hover:bg-brand-600">Check answer</button>
+                    <button id="resetBtn" class="inline-flex items-center rounded-md bg-surface-200 px-4 py-2 text-sm font-medium text-gray-900 hover:bg-surface-300">Reset</button>
+                  </div>
+
+                  <div id="result" class="hidden rounded-md border p-3 text-sm"></div>
+
+          
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div class="border-t border-surface-200 pt-5">
-            <h2 class="font-semibold">Scenario 2 — Profile update follow-up</h2>
-            <p class="mt-2 text-sm text-gray-700">You see an important sponsor event published. What follow-up checks on company profiles are needed?</p>
-            <details class="mt-3">
-              <summary class="cursor-pointer text-sm text-brand-700 hover:underline">Show model answer</summary>
-              <div class="mt-2 text-sm text-gray-700">
-                <p>Verify sponsor relationships, update holdings or board seats if applicable, and ensure entities are linked consistently.</p>
-              </div>
-            </details>
-          </div>
-
-          <div class="border-t border-surface-200 pt-5">
+          <div class="mt-6 border-t border-surface-200 pt-5">
             <a href="/news.html" class="inline-flex items-center justify-center rounded-md bg-brand-700 px-4 py-2 text-sm font-medium text-white shadow hover:bg-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2">Back to News</a>
           </div>
         </div>
@@ -101,6 +164,64 @@
       } else {
         guard.classList.remove('hidden')
       }
+
+      // Simple checker + lock model answer
+  const sponsorSelect = document.getElementById('sponsorSelect')
+  const companySelect = document.getElementById('companySelect')
+      const checkBtn = document.getElementById('checkBtn')
+      const resetBtn = document.getElementById('resetBtn')
+      const result = document.getElementById('result')
+  let answered = false
+
+      function getDecision() {
+        const el = document.querySelector('input[name="sponsor-decision"]:checked')
+        return el ? el.value : ''
+      }
+
+      checkBtn?.addEventListener('click', () => {
+        const messages = []
+        let ok = true
+  const sponsorValues = Array.from(sponsorSelect?.selectedOptions || []).map(o => o.value)
+        const company = companySelect?.value || ''
+        const decision = getDecision()
+
+        // Decision check
+        if (!decision) { ok = false; messages.push('Choose Publish or Irrelevant.') }
+        else if (decision !== 'publish') { ok = false; messages.push('Decision: Publish this item on 9fin.') }
+
+        // Company check
+        if (!company) { ok = false; messages.push('Select the company it refers to.') }
+        else if (company !== 'Totalmobile') { ok = false; messages.push('Company: This announcement is about Totalmobile.') }
+
+  // Sponsor check (new owners) — must include both buyers
+  const hasFiveArrows = sponsorValues.includes('Five Arrows')
+  const hasDBAG = sponsorValues.includes('DBAG')
+  const hasSeller = sponsorValues.includes('Bowmark Capital')
+  if (sponsorValues.length === 0) { ok = false; messages.push('Select the sponsor(s) to add to the company.') }
+  if (hasSeller) { ok = false; messages.push('Sponsor: Do not add the seller (Bowmark Capital) to the company ownership.') }
+  if (!hasFiveArrows || !hasDBAG) { ok = false; messages.push('Sponsor: Select both Five Arrows and DBAG as the new owners.') }
+
+        result.classList.remove('hidden','border-green-200','bg-green-50','text-green-800','border-red-200','bg-red-50','text-red-800')
+        if (ok) {
+          result.classList.add('border-green-200','bg-green-50','text-green-800')
+          result.innerHTML = '<p class="font-semibold">Correct</p><ul class="list-disc pl-5 mt-1"><li>Decision: Publish.</li><li>Company: Totalmobile.</li><li>Sponsor: Add Five Arrows and DBAG as owners.</li></ul>' +
+            '<div class="mt-3 pt-2 border-t border-green-200"><p class="font-medium">Why this matters</p><p class="mt-1">Accurate sponsor ownership keeps company profiles and sponsor portfolios up to date, powers client alerts/feeds, and enables clear linking to related Deals.</p></div>'
+        } else {
+          result.classList.add('border-red-200','bg-red-50','text-red-800')
+          result.innerHTML = `<p class=\"font-semibold\">Not quite</p><ul class=\"list-disc pl-5 mt-1\">${messages.map(m=>`<li>${m}</li>`).join('')}</ul>` +
+            '<div class="mt-3 pt-2 border-t border-red-200"><p class="font-medium">Why this matters</p><p class="mt-1">Publishing with correct company and sponsor ensures clients see timely sponsor changes and that profiles reflect the new owners.</p></div>'
+        }
+  answered = true
+      })
+
+      resetBtn?.addEventListener('click', () => {
+        if (sponsorSelect) Array.from(sponsorSelect.options).forEach(o => o.selected = false)
+        if (companySelect) companySelect.value = ''
+        const checked = document.querySelector('input[name="sponsor-decision"]:checked')
+        if (checked) checked.checked = false
+        result.classList.add('hidden')
+  answered = false
+      })
     </script>
   </body>
 </html>
