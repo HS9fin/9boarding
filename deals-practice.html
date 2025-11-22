@@ -1,0 +1,659 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Deals Practice • 9Boarding</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{brand:{50:'#e9eef9',100:'#cdd8f0',200:'#a9b9e2',300:'#7e95cf',400:'#566fb7',500:'#3a5498',600:'#2b417a',700:'#223665',800:'#1a2a4f',900:'#121d38'},surface:{100:'#f8fafc',200:'#eef2f7',300:'#e2e8f0'}}}}};</script>
+<style>html{font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,'Apple Color Emoji','Segoe UI Emoji';}
+body{overflow-x:hidden; max-width:100vw;}
+#sectionViewport{transition:none !important;}
+#sectionTrack img[alt="Bank blast"]{max-width:900px;margin:0 auto;display:block;width:100%;height:auto;}
+#dq-slide-3{max-width:100%;}
+#dq-slide-3 *{max-width:100%;}
+</style>
+</head>
+<body class="bg-white text-gray-900">
+<header class="sticky top-0 z-40 bg-brand-800 shadow-sm">
+  <div class="mx-auto max-w-7xl px-6 py-4 flex items-center gap-4 text-white">
+    <a href="./index.html" class="flex items-center gap-3"><img src="./Images/9fin.jpg" alt="9fin logo" class="h-8 w-auto rounded object-contain"/><span class="text-lg font-semibold">9Boarding</span></a>
+    <nav class="ml-auto hidden sm:flex items-center gap-6 text-sm"><a href="./index.html#workflows" class="text-white/90 hover:text-white">Workflows</a></nav>
+  </div>
+</header>
+<main class="mx-auto max-w-7xl px-6 py-10">
+  <a href="./deals.html" class="text-sm text-brand-700 hover:underline">← Back to Deals reading</a>
+  <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight mt-2">Deals — Practice</h1>
+  <p class="mt-2 text-gray-600">Unlocks after completing the Deals reading list.</p>
+  <div id="guard" class="mt-6 hidden rounded-lg border border-amber-200 bg-amber-50 text-amber-900 p-4"><p class="font-medium">Locked: complete the Deals reading first</p><p class="text-sm mt-1">Go back to the <a href="./deals.html" class="underline">Deals reading list</a> and tick all items.</p></div>
+  <section id="practiceContent" class="mt-8 hidden">
+    <div class="rounded-xl border border-surface-200 bg-white/80 shadow-sm p-5 overflow-hidden">
+      <div id="sectionViewport" class="relative transition-all duration-300 ease-in-out overflow-hidden">
+        <div id="sectionTrack" class="flex flex-nowrap items-start transition-transform duration-300 ease-in-out">
+          <!-- Slide 1: Quiz -->
+          <div class="min-w-full flex-none pr-0 md:pr-4" id="dq-slide-1">
+            <h2 class="text-xl font-semibold">Deal Updates & Syndication — Quiz</h2>
+            <p class="mt-1 text-sm text-gray-700">Multiple choice. Check each answer to reveal feedback and why it matters.</p>
+
+          <!-- Q1 -->
+          <div class="mt-4 rounded-lg border border-surface-200 p-4">
+            <h3 class="font-medium">1) What is the main purpose of a 9fin Deal Update (DU)?</h3>
+            <div class="mt-3 space-y-2 text-sm">
+              <label class="flex items-center gap-2"><input type="radio" name="q1" value="a" class="h-4 w-4"/> a) To alert clients to a new company being added to coverage</label>
+              <label class="flex items-center gap-2"><input type="radio" name="q1" value="b" class="h-4 w-4"/> b) To notify clients about secondary market trading activity</label>
+              <label class="flex items-center gap-2"><input type="radio" name="q1" value="c" class="h-4 w-4"/> c) To provide concise updates on the progress of a syndicated bond or loan deal</label>
+            </div>
+            <div class="mt-3 flex gap-3">
+              <button id="q1-check" class="inline-flex items-center rounded-md bg-brand-700 px-4 py-2 text-sm font-medium text-white hover:bg-brand-600">Check answer</button>
+              <button id="q1-reset" class="inline-flex items-center rounded-md bg-surface-200 px-4 py-2 text-sm font-medium text-gray-900 hover:bg-surface-300">Reset</button>
+            </div>
+            <div id="q1-result" class="hidden mt-3 rounded-md border p-3 text-sm"></div>
+          </div>
+
+          <!-- Q2 -->
+          <div class="mt-4 rounded-lg border border-surface-200 p-4">
+            <h3 class="font-medium">2) What is the difference between a Deal Alert and a Deal Update?</h3>
+            <div class="mt-3 space-y-2 text-sm">
+              <label class="flex items-center gap-2"><input type="radio" name="q2" value="a" class="h-4 w-4"/> a) Deal Alerts notify clients about new deals; Deal Updates track those deals through syndication to pricing</label>
+              <label class="flex items-center gap-2"><input type="radio" name="q2" value="b" class="h-4 w-4"/> b) Deal Alerts are internal messages; Deal Updates are for clients</label>
+              <label class="flex items-center gap-2"><input type="radio" name="q2" value="c" class="h-4 w-4"/> c) Deal Alerts only apply to bonds, not loans</label>
+            </div>
+            <div class="mt-3 flex gap-3">
+              <button id="q2-check" class="inline-flex items-center rounded-md bg-brand-700 px-4 py-2 text-sm font-medium text-white hover:bg-brand-600">Check answer</button>
+              <button id="q2-reset" class="inline-flex items-center rounded-md bg-surface-200 px-4 py-2 text-sm font-medium text-gray-900 hover:bg-surface-300">Reset</button>
+            </div>
+            <div id="q2-result" class="hidden mt-3 rounded-md border p-3 text-sm"></div>
+          </div>
+
+          <!-- Q3 -->
+          <div class="mt-4 rounded-lg border border-surface-200 p-4">
+            <h3 class="font-medium">3) During the bookbuild process, what happens when investor demand is strong (oversubscribed)?</h3>
+            <div class="mt-3 space-y-2 text-sm">
+              <label class="flex items-center gap-2"><input type="radio" name="q3" value="a" class="h-4 w-4"/> a) The coupon or margin is increased</label>
+              <label class="flex items-center gap-2"><input type="radio" name="q3" value="b" class="h-4 w-4"/> b) The bookrunners tighten pricing (lower coupon/margin)</label>
+              <label class="flex items-center gap-2"><input type="radio" name="q3" value="c" class="h-4 w-4"/> c) The deal is cancelled due to excess demand</label>
+            </div>
+            <div class="mt-3 flex gap-3">
+              <button id="q3-check" class="inline-flex items-center rounded-md bg-brand-700 px-4 py-2 text-sm font-medium text-white hover:bg-brand-600">Check answer</button>
+              <button id="q3-reset" class="inline-flex items-center rounded-md bg-surface-200 px-4 py-2 text-sm font-medium text-gray-900 hover:bg-surface-300">Reset</button>
+            </div>
+            <div id="q3-result" class="hidden mt-3 rounded-md border p-3 text-sm"></div>
+          </div>
+
+          <!-- Q4 -->
+          <div class="mt-4 rounded-lg border border-surface-200 p-4">
+            <h3 class="font-medium">4) What is the correct sequence of pricing stages during syndication?</h3>
+            <div class="mt-3 space-y-2 text-sm">
+              <label class="flex items-center gap-2"><input type="radio" name="q4" value="a" class="h-4 w-4"/> a) Launch → Price Talk → Initial Price Talk → Pricing</label>
+              <label class="flex items-center gap-2"><input type="radio" name="q4" value="b" class="h-4 w-4"/> b) IPT → PT → Revised PT → Final Terms → Priced</label>
+              <label class="flex items-center gap-2"><input type="radio" name="q4" value="c" class="h-4 w-4"/> c) Launch → IPT → Pricing → Final Terms</label>
+            </div>
+            <div class="mt-3 flex gap-3">
+              <button id="q4-check" class="inline-flex items-center rounded-md bg-brand-700 px-4 py-2 text-sm font-medium text-white hover:bg-brand-600">Check answer</button>
+              <button id="q4-reset" class="inline-flex items-center rounded-md bg-surface-200 px-4 py-2 text-sm font-medium text-gray-900 hover:bg-surface-300">Reset</button>
+            </div>
+            <div id="q4-result" class="hidden mt-3 rounded-md border p-3 text-sm"></div>
+          </div>
+
+          <!-- Q5 -->
+          <div class="mt-4 rounded-lg border border-surface-200 p-4">
+            <h3 class="font-medium">5) What does the abbreviation “IPT” stand for in the context of deal updates?</h3>
+            <div class="mt-3 space-y-2 text-sm">
+              <label class="flex items-center gap-2"><input type="radio" name="q5" value="a" class="h-4 w-4"/> a) Initial Pricing Terms</label>
+              <label class="flex items-center gap-2"><input type="radio" name="q5" value="b" class="h-4 w-4"/> b) Initial Price Talk</label>
+              <label class="flex items-center gap-2"><input type="radio" name="q5" value="c" class="h-4 w-4"/> c) Issuer Pricing Timeline</label>
+            </div>
+            <div class="mt-3 flex gap-3">
+              <button id="q5-check" class="inline-flex items-center rounded-md bg-brand-700 px-4 py-2 text-sm font-medium text-white hover:bg-brand-600">Check answer</button>
+              <button id="q5-reset" class="inline-flex items-center rounded-md bg-surface-200 px-4 py-2 text-sm font-medium text-gray-900 hover:bg-surface-300">Reset</button>
+            </div>
+            <div id="q5-result" class="hidden mt-3 rounded-md border p-3 text-sm"></div>
+          </div>
+
+          <!-- Q6 -->
+          <div class="mt-4 rounded-lg border border-surface-200 p-4">
+            <h3 class="font-medium">6) If a €500m loan deal from a European borrower is announced, which Slack channel should you forward the update to?</h3>
+            <div class="mt-3 space-y-2 text-sm">
+              <label class="flex items-center gap-2"><input type="radio" name="q6" value="a" class="h-4 w-4"/> a) #us-biz</label>
+              <label class="flex items-center gap-2"><input type="radio" name="q6" value="b" class="h-4 w-4"/> b) #loans</label>
+              <label class="flex items-center gap-2"><input type="radio" name="q6" value="c" class="h-4 w-4"/> c) #biz</label>
+            </div>
+            <div class="mt-3 flex gap-3">
+              <button id="q6-check" class="inline-flex items-center rounded-md bg-brand-700 px-4 py-2 text-sm font-medium text-white hover:bg-brand-600">Check answer</button>
+              <button id="q6-reset" class="inline-flex items-center rounded-md bg-surface-200 px-4 py-2 text-sm font-medium text-gray-900 hover:bg-surface-300">Reset</button>
+            </div>
+            <div id="q6-result" class="hidden mt-3 rounded-md border p-3 text-sm"></div>
+          </div>
+
+          <!-- Q7 -->
+          <div class="mt-4 rounded-lg border border-surface-200 p-4">
+            <h3 class="font-medium">7) When reviewing emails in the #dealupdates Slack channel, what does the 🧷 (paperclip) emoji indicate?</h3>
+            <div class="mt-3 space-y-2 text-sm">
+              <label class="flex items-center gap-2"><input type="radio" name="q7" value="a" class="h-4 w-4"/> a) The email is irrelevant</label>
+              <label class="flex items-center gap-2"><input type="radio" name="q7" value="b" class="h-4 w-4"/> b) The deal update needs to be prepared</label>
+              <label class="flex items-center gap-2"><input type="radio" name="q7" value="c" class="h-4 w-4"/> c) The deal update has already been completed</label>
+            </div>
+            <div class="mt-3 flex gap-3">
+              <button id="q7-check" class="inline-flex items-center rounded-md bg-brand-700 px-4 py-2 text-sm font-medium text-white hover:bg-brand-600">Check answer</button>
+              <button id="q7-reset" class="inline-flex items-center rounded-md bg-surface-200 px-4 py-2 text-sm font-medium text-gray-900 hover:bg-surface-300">Reset</button>
+            </div>
+            <div id="q7-result" class="hidden mt-3 rounded-md border p-3 text-sm"></div>
+          </div>
+
+          <!-- Q8 -->
+          <div class="mt-4 rounded-lg border border-surface-200 p-4">
+            <h3 class="font-medium">8) Which of the following deal stages indicates that terms have been agreed but the instrument has not yet officially priced?</h3>
+            <div class="mt-3 space-y-2 text-sm">
+              <label class="flex items-center gap-2"><input type="radio" name="q8" value="a" class="h-4 w-4"/> a) Final Terms</label>
+              <label class="flex items-center gap-2"><input type="radio" name="q8" value="b" class="h-4 w-4"/> b) Priced</label>
+              <label class="flex items-center gap-2"><input type="radio" name="q8" value="c" class="h-4 w-4"/> c) Revised PT</label>
+            </div>
+            <div class="mt-3 flex gap-3">
+              <button id="q8-check" class="inline-flex items-center rounded-md bg-brand-700 px-4 py-2 text-sm font-medium text-white hover:bg-brand-600">Check answer</button>
+              <button id="q8-reset" class="inline-flex items-center rounded-md bg-surface-200 px-4 py-2 text-sm font-medium text-gray-900 hover:bg-surface-300">Reset</button>
+            </div>
+            <div id="q8-result" class="hidden mt-3 rounded-md border p-3 text-sm"></div>
+          </div>
+
+          <!-- Q9 -->
+          <div class="mt-4 rounded-lg border border-surface-200 p-4">
+            <h3 class="font-medium">9) Which of these deal types refers to increasing the size of an existing bond or loan tranche?</h3>
+            <div class="mt-3 space-y-2 text-sm">
+              <label class="flex items-center gap-2"><input type="radio" name="q9" value="a" class="h-4 w-4"/> a) Amend & Extend</label>
+              <label class="flex items-center gap-2"><input type="radio" name="q9" value="b" class="h-4 w-4"/> b) Add-on (loan) / Tap (bond)</label>
+              <label class="flex items-center gap-2"><input type="radio" name="q9" value="c" class="h-4 w-4"/> c) Repricing</label>
+            </div>
+            <div class="mt-3 flex gap-3">
+              <button id="q9-check" class="inline-flex items-center rounded-md bg-brand-700 px-4 py-2 text-sm font-medium text-white hover:bg-brand-600">Check answer</button>
+              <button id="q9-reset" class="inline-flex items-center rounded-md bg-surface-200 px-4 py-2 text-sm font-medium text-gray-900 hover:bg-surface-300">Reset</button>
+            </div>
+            <div id="q9-result" class="hidden mt-3 rounded-md border p-3 text-sm"></div>
+          </div>
+
+          <!-- Q10 -->
+          <div class="mt-4 rounded-lg border border-surface-200 p-4">
+            <h3 class="font-medium">10) What does it mean when a deal is marked as “Pulled”?</h3>
+            <div class="mt-3 space-y-2 text-sm">
+              <label class="flex items-center gap-2"><input type="radio" name="q10" value="a" class="h-4 w-4"/> a) The deal was successfully closed ahead of schedule</label>
+              <label class="flex items-center gap-2"><input type="radio" name="q10" value="b" class="h-4 w-4"/> b) The issuer increased deal size due to demand</label>
+              <label class="flex items-center gap-2"><input type="radio" name="q10" value="c" class="h-4 w-4"/> c) The deal was postponed or cancelled due to weak demand or market conditions</label>
+            </div>
+            <div class="mt-3 flex gap-3">
+              <button id="q10-check" class="inline-flex items-center rounded-md bg-brand-700 px-4 py-2 text-sm font-medium text-white hover:bg-brand-600">Check answer</button>
+              <button id="q10-reset" class="inline-flex items-center rounded-md bg-surface-200 px-4 py-2 text-sm font-medium text-gray-900 hover:bg-surface-300">Reset</button>
+            </div>
+            <div id="q10-result" class="hidden mt-3 rounded-md border p-3 text-sm"></div>
+          </div>
+
+          <!-- Q11 -->
+          <div class="mt-4 rounded-lg border border-surface-200 p-4">
+            <h3 class="font-medium">11) In a multi-tranche deal, what term should be used for two tranches vs. three or more tranches?</h3>
+            <div class="mt-3 space-y-2 text-sm">
+              <label class="flex items-center gap-2"><input type="radio" name="q11" value="a" class="h-4 w-4"/> a) Dual-tranche for two; Multi-tranche for three or more</label>
+              <label class="flex items-center gap-2"><input type="radio" name="q11" value="b" class="h-4 w-4"/> b) Bi-tranche for two; Poly-tranche for three or more</label>
+              <label class="flex items-center gap-2"><input type="radio" name="q11" value="c" class="h-4 w-4"/> c) Multi-tranche for all cases</label>
+            </div>
+            <div class="mt-3 flex gap-3">
+              <button id="q11-check" class="inline-flex items-center rounded-md bg-brand-700 px-4 py-2 text-sm font-medium text-white hover:bg-brand-600">Check answer</button>
+              <button id="q11-reset" class="inline-flex items-center rounded-md bg-surface-200 px-4 py-2 text-sm font-medium text-gray-900 hover:bg-surface-300">Reset</button>
+            </div>
+            <div id="q11-result" class="hidden mt-3 rounded-md border p-3 text-sm"></div>
+          </div>
+                <div class="border-t border-surface-200 pt-5 flex items-center gap-3">
+                  <div class="text-xs text-gray-600">Page <span class="font-semibold" data-page-indicator>1</span> of 5</div>
+                  <button id="nextSectionBtn-1" class="ml-auto inline-flex items-center justify-center rounded-md bg-brand-700 px-4 py-2 text-sm font-medium text-white shadow hover:bg-brand-600">Next →</button>
+                </div>
+              </div>
+          <!-- Slide 2: Structure Reading -->
+          <div class="min-w-full flex-none pl-0 md:pl-4" id="dq-slide-2">
+            <h2 class="text-xl font-semibold text-brand-800 flex items-center gap-2">📐 Deal Update Structure</h2>
+            <p class="mt-2 text-sm text-gray-700">Study the standard formats before drafting. Use these templates to guide concise, consistent output.</p>
+            <div class="mt-4 rounded-lg border border-surface-200 bg-white/70 p-4 space-y-4">
+                    <h3 class="text-sm font-semibold text-brand-700 flex items-center gap-2">Structure Reference</h3>
+                    <div class="space-y-3 text-xs leading-relaxed">
+                      <div>
+                        <p class="font-medium text-gray-800">Single tranche format</p>
+                        <p class="mt-1 font-mono bg-surface-100 border border-surface-200 rounded px-2 py-1">Amount Security due YYYY. PT Margin @ Price, Floor. Timing sentence.</p>
+                        <p class="mt-1 text-gray-600">Example:</p>
+                        <p class="font-mono bg-surface-100 border border-surface-200 rounded px-2 py-1">$500m TLB due 2033. PT S+300 @ 100, 0% floor. Commits due 30-Sep @ 12:00 ET</p>
+                      </div>
+                      <div class="pt-2 border-t border-dashed border-surface-200">
+                        <p class="font-medium text-gray-800">Dual-tranche format</p>
+                        <p class="mt-1 font-mono bg-surface-100 border border-surface-200 rounded px-2 py-1">Amount dual-tranche TLBs due YYYY. Tranches & Timing:</p>
+                        <p class="mt-1 text-gray-600">Body sections:</p>
+                        <ul class="list-disc ml-5 space-y-1 text-gray-700">
+                          <li><span class="font-semibold">Tranches:</span> Each tranche on its own line with PT</li>
+                          <li><span class="font-semibold">Additional UoP / Stepdowns / Ticking fees</span> (optional line(s))</li>
+                          <li><span class="font-semibold">Timing:</span> Call & commitments deadlines</li>
+                        </ul>
+                        <p class="mt-2 text-gray-600">Example:</p>
+                        <div class="font-mono bg-surface-100 border border-surface-200 rounded px-2 py-2 space-y-1">
+                          <p>$500m dual-tranche TLBs due 2033. Tranches & Timing:</p>
+                          <p>Tranches:</p>
+                          <p>$250m TLB due 2033. PT S+300 @ 100, 0% floor</p>
+                          <p>$250m TLB due 2033. PT S+300 @ 100, 0% floor</p>
+                          <p>Additional UoP: LBO</p>
+                          <p>Timing:</p>
+                          <p>Lender call today (30-Sep) @ 12:00 ET</p>
+                          <p>Commits due tomorrow (1-Oct) @ 12:00 ET</p>
+                        </div>
+                      </div>
+                      <div class="pt-2 border-t border-dashed border-surface-200">
+                        <p class="font-medium text-gray-800">Tips</p>
+                        <ul class="list-disc ml-5 space-y-1 text-gray-700">
+                          <li>Keep opening line ultra concise – no issuer name if already clear from context.</li>
+                          <li>Use consistent ordering: Amount → Instrument → Maturity → Pricing → Timing.</li>
+                          <li>Floor only if non-zero (still show 0% floor for training consistency here).</li>
+                          <li>Separate multi-tranche detail under the Tranches header; avoid run-on sentences.</li>
+                        </ul>
+                      </div>
+                  </div>
+                </div>
+                <div class="border-t border-surface-200 pt-5 flex items-center gap-3">
+                  <div class="text-xs text-gray-600">Page <span class="font-semibold" data-page-indicator>2</span> of 5</div>
+                  <button id="prevSectionBtn-2" class="inline-flex items-center justify-center rounded-md bg-surface-200 px-4 py-2 text-sm font-medium text-gray-900 hover:bg-surface-300">← Previous</button>
+                  <button id="nextSectionBtn-2" class="ml-auto inline-flex items-center justify-center rounded-md bg-brand-700 px-4 py-2 text-sm font-medium text-white shadow hover:bg-brand-600">Next →</button>
+                </div>
+              </div>
+          <!-- Slide 3: Bank Blast Drafting -->
+          <div class="min-w-full flex-none overflow-x-hidden" id="dq-slide-3" style="max-width: 100%;">
+            <div style="max-width: 100%; overflow-x: hidden;">
+            <h2 class="text-xl font-semibold text-brand-800 flex items-center gap-2">📝 Draft From Bank Blast</h2>
+            <p class="mt-2 text-sm text-gray-700">Fill the gaps from the bank blast. After both are correct, the formatted deal update appears at the bottom.</p>
+            <div class="mt-4 rounded-lg border border-surface-200 bg-surface-100 overflow-hidden" style="max-width: 100%;">
+              <img src="./Images/BankBlast.png" alt="Bank blast" class="block w-full h-auto" style="max-width: 100%;" loading="lazy" />
+            </div>
+            <div id="bankBlastBlock" class="mt-6 space-y-6 text-sm border border-surface-200 rounded-lg p-4 bg-white overflow-x-hidden" style="max-width: 100%;">
+                    <div class="rounded-lg border border-surface-200 p-4 bg-white/70 overflow-x-hidden" style="max-width: 100%;">
+                      <p class="font-medium">Draft excerpt:</p>
+                      <div class="w-full overflow-x-hidden" style="max-width: 100%;">
+                        <pre class="whitespace-pre-wrap break-words text-xs leading-relaxed bg-surface-100 border border-surface-200 rounded p-3" style="word-break: break-word; overflow-wrap: break-word; max-width: 100%; overflow-x: hidden;">Deal Update: €<span class="inline-block px-1.5 py-0.5 rounded bg-brand-50 text-brand-700 font-semibold ring-1 ring-brand-100">[GAP_A]</span> TLB due 2032. PT <span class="inline-block px-1.5 py-0.5 rounded bg-amber-50 text-amber-700 font-semibold ring-1 ring-amber-200">[GAP_B]</span>. Global lender call tomorrow (28-Oct) @ 09:00 UKT / 10:00 CET. Commits due 6-Nov @ 12:00 UKT / 13:00 CET.</pre>
+                        <div id="finalAnswer" class="hidden mt-4">
+                          <div class="rounded-md p-4 bg-brand-800 text-white shadow ring-1 ring-brand-700 overflow-hidden" style="word-break: break-word;">
+                            <p class="text-xs uppercase tracking-wide font-semibold opacity-80">✅ Completed Draft Line</p>
+                            <p id="finalAnswerText" class="mt-2 text-xs sm:text-sm font-medium font-mono break-words overflow-wrap-anywhere"></p>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- GAP QUESTIONS BELOW EXCERPT -->
+                      <!-- GAP A -->
+                      <div class="mt-4">
+                        <p class="font-medium">Gap A: Term loan B size</p>
+                        <div class="mt-2 space-y-2">
+                          <label class="flex items-center gap-2"><input type="radio" name="gapA" value="a" class="h-4 w-4"/> a) €500m</label>
+                          <label class="flex items-center gap-2"><input type="radio" name="gapA" value="b" class="h-4 w-4"/> b) €600m</label>
+                          <label class="flex items-center gap-2"><input type="radio" name="gapA" value="c" class="h-4 w-4"/> c) €700m</label>
+                        </div>
+                        <div class="mt-2 flex gap-3">
+                          <button id="gapA-check" class="inline-flex items-center rounded-md bg-brand-700 px-3 py-1.5 text-xs font-medium text-white hover:bg-brand-600">Check</button>
+                          <button id="gapA-reset" class="inline-flex items-center rounded-md bg-surface-200 px-3 py-1.5 text-xs font-medium text-gray-900 hover:bg-surface-300">Reset</button>
+                        </div>
+                        <div id="gapA-result" class="hidden mt-2 rounded-md border p-3 text-xs"></div>
+                      </div>
+                      <!-- GAP B (Price talk) -->
+                      <div class="mt-5">
+                        <p class="font-medium">Gap B: Price talk</p>
+                        <div class="mt-2 space-y-2">
+                          <label class="flex items-center gap-2"><input type="radio" name="gapB" value="a" class="h-4 w-4"/> a) E+475 @ 98, 0% floor</label>
+                          <label class="flex items-center gap-2"><input type="radio" name="gapB" value="b" class="h-4 w-4"/> b) E+500 @ 97-97.5, 0% floor</label>
+                          <label class="flex items-center gap-2"><input type="radio" name="gapB" value="c" class="h-4 w-4"/> c) E+550 @ 96, 0.5% floor</label>
+                        </div>
+                        <div class="mt-2 flex gap-3">
+                          <button id="gapB-check" class="inline-flex items-center rounded-md bg-brand-700 px-3 py-1.5 text-xs font-medium text-white hover:bg-brand-600">Check</button>
+                          <button id="gapB-reset" class="inline-flex items-center rounded-md bg-surface-200 px-3 py-1.5 text-xs font-medium text-gray-900 hover:bg-surface-300">Reset</button>
+                        </div>
+                        <div id="gapB-result" class="hidden mt-2 rounded-md border p-3 text-xs"></div>
+                      </div>
+                    </div>
+            </div>
+            <div class="border-t border-surface-200 pt-5 flex items-center gap-3 mt-4">
+              <div class="text-xs text-gray-600">Page <span class="font-semibold" data-page-indicator>3</span> of 5</div>
+              <button id="prevSectionBtn-3" class="inline-flex items-center justify-center rounded-md bg-surface-200 px-4 py-2 text-sm font-medium text-gray-900 hover:bg-surface-300">← Previous</button>
+              <button id="nextSectionBtn-3" class="ml-auto inline-flex items-center justify-center rounded-md bg-brand-700 px-4 py-2 text-sm font-medium text-white shadow hover:bg-brand-600">Next →</button>
+            </div>
+            </div>
+          </div>
+
+          <!-- Slide 4: Bank Blast Drafting (duplicate of Slide 3) -->
+          <div class="min-w-full flex-none overflow-x-hidden" id="dq-slide-4" style="max-width: 100%;">
+            <div style="max-width: 100%; overflow-x: hidden;">
+            <h2 class="text-xl font-semibold text-brand-800 flex items-center gap-2">📝 Draft From Bank Blast</h2>
+            <p class="mt-2 text-sm text-gray-700">Fill the gaps from the bank blast. After both are correct, the formatted deal update appears at the bottom.</p>
+            <div class="mt-4 rounded-lg border border-surface-200 bg-surface-100 overflow-hidden" style="max-width: 100%;">
+              <img src="./Images/BankBlast2.png" alt="Bank blast" class="block w-full h-auto" style="max-width: 680px;" loading="lazy" />
+            </div>
+            <div class="mt-6 space-y-6 text-sm border border-surface-200 rounded-lg p-4 bg-white overflow-x-hidden" style="max-width: 100%;">
+                    <div class="rounded-lg border border-surface-200 p-4 bg-white/70 overflow-x-hidden" style="max-width: 100%;">
+                      <p class="font-medium">Draft excerpt:</p>
+                      <div class="w-full overflow-x-hidden" style="max-width: 100%;">
+                        <pre class="whitespace-pre-wrap break-words text-xs leading-relaxed bg-surface-100 border border-surface-200 rounded p-3" style="word-break: break-word; overflow-wrap: break-word; max-width: 100%; overflow-x: hidden;">Deal Update: €600m TLB due 2032. <span class="inline-block px-1.5 py-0.5 rounded bg-amber-50 text-amber-700 font-semibold ring-1 ring-amber-200">[GAP_A]</span> <span class="inline-block px-1.5 py-0.5 rounded bg-brand-50 text-brand-700 font-semibold ring-1 ring-brand-100">[GAP_B]</span>, 0% floor. Re-commits due tomorrow (7-Nov) @ 13:00 UKT. Allocations thereafter</pre>
+                        <div class="hidden mt-4" id="finalAnswer-4">
+                          <div class="rounded-md p-4 bg-brand-800 text-white shadow ring-1 ring-brand-700 overflow-hidden" style="word-break: break-word;">
+                            <p class="text-xs uppercase tracking-wide font-semibold opacity-80">✅ Completed Draft Line</p>
+                            <p class="mt-2 text-xs sm:text-sm font-medium font-mono break-words overflow-wrap-anywhere" id="finalAnswerText-4"></p>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- GAP QUESTIONS BELOW EXCERPT -->
+                      <!-- GAP A -->
+                      <div class="mt-4">
+                        <p class="font-medium">Gap A: Stage</p>
+                        <div class="mt-2 space-y-2">
+                          <label class="flex items-center gap-2"><input type="radio" name="gapA-4" value="a" class="h-4 w-4"/> a) Final Terms</label>
+                          <label class="flex items-center gap-2"><input type="radio" name="gapA-4" value="b" class="h-4 w-4"/> b) Price Talk (PT)</label>
+                          <label class="flex items-center gap-2"><input type="radio" name="gapA-4" value="c" class="h-4 w-4"/> c) Revised PT</label>
+                        </div>
+                        <div class="mt-2 flex gap-3">
+                          <button id="gapA-4-check" class="inline-flex items-center rounded-md bg-brand-700 px-3 py-1.5 text-xs font-medium text-white hover:bg-brand-600">Check</button>
+                          <button id="gapA-4-reset" class="inline-flex items-center rounded-md bg-surface-200 px-3 py-1.5 text-xs font-medium text-gray-900 hover:bg-surface-300">Reset</button>
+                        </div>
+                        <div class="hidden mt-2 rounded-md border p-3 text-xs" id="gapA-4-result"></div>
+                      </div>
+                      <!-- GAP B (Price talk) -->
+                      <div class="mt-5">
+                        <p class="font-medium">Gap B: Price</p>
+                        <div class="mt-2 space-y-2">
+                          <label class="flex items-center gap-2"><input type="radio" name="gapB-4" value="a" class="h-4 w-4"/> a) E+500 @ 97 (from 97-97.5 PT)</label>
+                          <label class="flex items-center gap-2"><input type="radio" name="gapB-4" value="b" class="h-4 w-4"/> b) E+500 @ 98 (from 98.5-99 PT)</label>
+                          <label class="flex items-center gap-2"><input type="radio" name="gapB-4" value="c" class="h-4 w-4"/> c) E+475 @ 98.5 (from 99-99.5 PT)</label>
+                        </div>
+                        <div class="mt-2 flex gap-3">
+                          <button id="gapB-4-check" class="inline-flex items-center rounded-md bg-brand-700 px-3 py-1.5 text-xs font-medium text-white hover:bg-brand-600">Check</button>
+                          <button id="gapB-4-reset" class="inline-flex items-center rounded-md bg-surface-200 px-3 py-1.5 text-xs font-medium text-gray-900 hover:bg-surface-300">Reset</button>
+                        </div>
+                        <div class="hidden mt-2 rounded-md border p-3 text-xs" id="gapB-4-result"></div>
+                      </div>
+                    </div>
+            </div>
+            <div class="border-t border-surface-200 pt-5 flex items-center gap-3 mt-4">
+              <div class="text-xs text-gray-600">Page <span class="font-semibold" data-page-indicator>4</span> of 5</div>
+              <button id="prevSectionBtn-4" class="inline-flex items-center justify-center rounded-md bg-surface-200 px-4 py-2 text-sm font-medium text-gray-900 hover:bg-surface-300">← Previous</button>
+              <button id="nextSectionBtn-4" class="ml-auto inline-flex items-center justify-center rounded-md bg-brand-700 px-4 py-2 text-sm font-medium text-white shadow hover:bg-brand-600">Next →</button>
+            </div>
+            </div>
+          </div>
+          <!-- Slide 5: Bank Blast Drafting (instrument & tenor gaps) -->
+          <div class="min-w-full flex-none overflow-x-hidden" id="dq-slide-5" style="max-width: 100%;">
+            <div style="max-width: 100%; overflow-x: hidden;">
+            <h2 class="text-xl font-semibold text-brand-800 flex items-center gap-2">📝 Draft From Bank Blast</h2>
+            <p class="mt-2 text-sm text-gray-700">Fill the instrument & tenor gaps. After both are correct, the formatted deal update appears at the bottom.</p>
+            <div class="mt-4 rounded-lg border border-surface-200 bg-surface-100 overflow-hidden" style="max-width: 100%;">
+              <img src="./Images/BankBlast3.png" alt="Bank blast" class="block w-full h-auto" style="max-width: 760px;" loading="lazy" />
+            </div>
+            <div class="mt-6 space-y-6 text-sm border border-surface-200 rounded-lg p-4 bg-white overflow-x-hidden" style="max-width: 100%;">
+                    <div class="rounded-lg border border-surface-200 p-4 bg-white/70 overflow-x-hidden" style="max-width: 100%;">
+                      <p class="font-medium">Draft excerpt:</p>
+                      <div class="w-full overflow-x-hidden" style="max-width: 100%;">
+                        <pre class="whitespace-pre-wrap break-words text-xs leading-relaxed bg-surface-100 border border-surface-200 rounded p-3" style="word-break: break-word; overflow-wrap: break-word; max-width: 100%; overflow-x: hidden;">Deal Update: €600m <span class="inline-block px-1.5 py-0.5 rounded bg-brand-50 text-brand-700 font-semibold ring-1 ring-brand-100">[GAP_A]</span> due <span class="inline-block px-1.5 py-0.5 rounded bg-amber-50 text-amber-700 font-semibold ring-1 ring-amber-200">[GAP_B]</span>. Priced E+500 @ 97, 0% floor</pre>
+                        <div class="hidden mt-4" id="finalAnswer-5">
+                          <div class="rounded-md p-4 bg-brand-800 text-white shadow ring-1 ring-brand-700 overflow-hidden" style="word-break: break-word;">
+                            <p class="text-xs uppercase tracking-wide font-semibold opacity-80">✅ Completed Draft Line</p>
+                            <p class="mt-2 text-xs sm:text-sm font-medium font-mono break-words overflow-wrap-anywhere" id="finalAnswerText-5"></p>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- GAP QUESTIONS BELOW EXCERPT -->
+                      <!-- GAP A -->
+                      <div class="mt-4">
+                        <p class="font-medium">Gap A: Instrument</p>
+                        <div class="mt-2 space-y-2">
+                          <label class="flex items-center gap-2"><input type="radio" name="gapA-5" value="a" class="h-4 w-4"/> a) TLB</label>
+                          <label class="flex items-center gap-2"><input type="radio" name="gapA-5" value="b" class="h-4 w-4"/> b) Senior Unsecured Notes</label>
+                          <label class="flex items-center gap-2"><input type="radio" name="gapA-5" value="c" class="h-4 w-4"/> c) Term Loan A</label>
+                        </div>
+                        <div class="mt-2 flex gap-3">
+                          <button id="gapA-5-check" class="inline-flex items-center rounded-md bg-brand-700 px-3 py-1.5 text-xs font-medium text-white hover:bg-brand-600">Check</button>
+                          <button id="gapA-5-reset" class="inline-flex items-center rounded-md bg-surface-200 px-3 py-1.5 text-xs font-medium text-gray-900 hover:bg-surface-300">Reset</button>
+                        </div>
+                        <div class="hidden mt-2 rounded-md border p-3 text-xs" id="gapA-5-result"></div>
+                      </div>
+                      <!-- GAP B (Tenor) -->
+                      <div class="mt-5">
+                        <p class="font-medium">Gap B: Tenor (Maturity Year)</p>
+                        <div class="mt-2 space-y-2">
+                          <label class="flex items-center gap-2"><input type="radio" name="gapB-5" value="a" class="h-4 w-4"/> a) 2030</label>
+                          <label class="flex items-center gap-2"><input type="radio" name="gapB-5" value="b" class="h-4 w-4"/> b) 2032</label>
+                          <label class="flex items-center gap-2"><input type="radio" name="gapB-5" value="c" class="h-4 w-4"/> c) 2034</label>
+                        </div>
+                        <div class="mt-2 flex gap-3">
+                          <button id="gapB-5-check" class="inline-flex items-center rounded-md bg-brand-700 px-3 py-1.5 text-xs font-medium text-white hover:bg-brand-600">Check</button>
+                          <button id="gapB-5-reset" class="inline-flex items-center rounded-md bg-surface-200 px-3 py-1.5 text-xs font-medium text-gray-900 hover:bg-surface-300">Reset</button>
+                        </div>
+                        <div class="hidden mt-2 rounded-md border p-3 text-xs" id="gapB-5-result"></div>
+                      </div>
+                    </div>
+            </div>
+            <div class="border-t border-surface-200 pt-5 flex items-center gap-3 mt-4">
+              <div class="text-xs text-gray-600">Page <span class="font-semibold" data-page-indicator>5</span> of 5</div>
+              <button id="prevSectionBtn-5" class="inline-flex items-center justify-center rounded-md bg-surface-200 px-4 py-2 text-sm font-medium text-gray-900 hover:bg-surface-300">← Previous</button>
+              <a href="./deals.html" class="inline-flex items-center justify-center rounded-md bg-surface-200 px-4 py-2 text-sm font-medium text-gray-900 hover:bg-surface-300">Back to Deals</a>
+              <a href="./index.html#workflows" class="ml-auto inline-flex items-center justify-center rounded-md bg-brand-700 px-4 py-2 text-sm font-medium text-white shadow hover:bg-brand-600">Back to Workflows</a>
+            </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="mt-16 border-t border-surface-200">
+      <div class="mx-auto max-w-7xl px-6 py-8 text-sm text-gray-500 flex items-center justify-between">
+        <p>© <span id="year"></span> 9Boarding</p>
+        <a class="hover:text-brand-700" href="mailto:people@9fin.com">Contact People Ops</a>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear()
+      // Gate based on Deals reading completion
+      const KEY='9boarding:deals:reading';
+      const saved=JSON.parse(localStorage.getItem(KEY)||'{}');
+      const required=['notion:deal-updates','notion:new-deals-instruments','notion:deal-metrics-financials'];
+      const unlocked=required.every(k=>!!saved[k]);
+      const guard=document.getElementById('guard');
+      const content=document.getElementById('practiceContent');
+      if(unlocked){content.classList.remove('hidden')} else {guard.classList.remove('hidden')}
+      // Quiz wiring (reuse existing functions)
+      function setOK(el, ok, body){el.classList.remove('hidden','border-green-200','bg-green-50','text-green-800','border-red-200','bg-red-50','text-red-800'); if(ok){el.classList.add('border-green-200','bg-green-50','text-green-800')} else {el.classList.add('border-red-200','bg-red-50','text-red-800')} el.innerHTML=body}
+  const whyCopy = (txt) => `<div class="mt-3 pt-2 border-t"><p class="font-medium">Why this matters</p><p class="mt-1">${txt}</p></div>`
+      const wire=(num,correct,correctCopy,incorrectCopy,why)=>{
+        const checkBtn=document.getElementById(`q${num}-check`)
+        const resetBtn=document.getElementById(`q${num}-reset`)
+        if(checkBtn){
+          checkBtn.addEventListener('click',()=>{
+            const selected=document.querySelector(`input[name="q${num}"]:checked`)
+            const v=selected?.value
+            const ok=v===correct
+            const resultEl=document.getElementById(`q${num}-result`)
+            setOK(resultEl,ok,(ok?`<p class="font-semibold">Correct</p><p class="mt-1">${correctCopy}</p>`:`<p class="font-semibold">Not quite</p><p class="mt-1">${incorrectCopy}</p>`)+whyCopy(why))
+            updateViewportHeight()
+          })
+        }
+        if(resetBtn){
+          resetBtn.addEventListener('click',()=>{
+            const selected=document.querySelector(`input[name="q${num}"]:checked`)
+            if(selected) selected.checked=false
+            document.getElementById(`q${num}-result`)?.classList.add('hidden')
+            updateViewportHeight()
+          })
+        }
+      }
+      wire(1,'c','Deal Updates summarise syndication progress concisely.','Focus on progress of live deals rather than coverage adds or secondary trading.','Consistent updates keep clients informed and reduce inbound queries.'); wire(2,'a','Alerts start lifecycle; Updates track evolution to pricing.','Remember: Alerts = new deal start, Updates = subsequent stages.','Clear differentiation prevents duplicate or missing notifications.'); wire(3,'b','Strong demand lets bookrunners tighten pricing for issuers.','Oversubscription rarely means cancelling; think pricing leverage.','Understanding demand dynamics helps interpret pricing changes.'); wire(4,'b','That sequence reflects typical information flow to market.','Order matters; IPT precedes formal PT then revisions to final terms.','Accurate staging avoids mislabelling and client confusion.'); wire(5,'b','IPT = Initial Price Talk (early guidance range).','Avoid mixing with final or initial pricing terms wording.','Correct terminology signals familiarity with market conventions.'); wire(6,'b','Loan deals route to #loans for visibility to the right desk.','Channel choice matters; #biz handles broader corporate items.','Proper routing accelerates review and publication.'); wire(7,'b','Paperclip flags items needing a deal update drafted.','It is not a completion marker; it signals pending work.','Shared signals coordinate workload among analysts.'); wire(8,'a','Final Terms agreed but not yet officially priced.','Priced means allocations/coupon set; Revised PT earlier stage.','Stage clarity prevents premature pricing announcements.'); wire(9,'b','Add-on/Tap increases existing tranche size.','Amend & Extend or Repricing change terms not necessarily size.','Correct classification impacts historical analytics and filters.'); wire(10,'c','Pulled = postponed/cancelled due to weak conditions.','It is not a success or upsizing event.','Accurate status flags help clients assess market tone.'); wire(11,'a','Use Dual-tranche vs Multi-tranche for clarity.','Avoid non-standard or generic labels for two-tranche deals.','Precise terminology improves searchability and analytics.');
+      // Draft gaps
+      const gapStatus={gapA:false,gapB:false};
+      function tryRevealFinal(){
+        const el=document.getElementById('finalAnswer');
+        if(!el) return;
+        if(gapStatus.gapA && gapStatus.gapB){
+          document.getElementById('finalAnswerText').textContent='Deal Update: €600m TLB due 2032. PT E+500 @ 97-97.5, 0% floor. Global lender call tomorrow (28-Oct) @ 09:00 UKT / 10:00 CET. Commits due 6-Nov @ 12:00 UKT / 13:00 CET';
+          el.classList.remove('hidden')
+        } else {
+          el.classList.add('hidden')
+        }
+        // after DOM toggle, remeasure height on next frame
+        scheduleHeightUpdate();
+      }
+      const gapWire=(id,correct,correctCopy,incorrectCopy,why)=>{
+        document.getElementById(`${id}-check`)?.addEventListener('click',()=>{
+          const v=document.querySelector(`input[name="${id}"]:checked`)?.value;
+          const ok=v===correct;
+          setOK(
+            document.getElementById(`${id}-result`),
+            ok,
+            (ok?`<p class=\"font-semibold\">Correct</p><p class=\"mt-1\">${correctCopy}</p>`:`<p class=\"font-semibold\">Not quite</p><p class=\"mt-1\">${incorrectCopy}</p>`) + whyCopy(why)
+          );
+          gapStatus[id]=ok;
+          tryRevealFinal();
+          scheduleHeightUpdate();
+        });
+        document.getElementById(`${id}-reset`)?.addEventListener('click',()=>{
+          const c=document.querySelector(`input[name="${id}"]:checked`);
+          if(c) c.checked=false;
+          document.getElementById(`${id}-result`)?.classList.add('hidden');
+          gapStatus[id]=false;
+          tryRevealFinal();
+          scheduleHeightUpdate();
+        })
+      };
+      gapWire('gapA','b','€600m matches the blast for TLB size.','Picking incorrect size misleads investors on supply.','Size accuracy underpins market depth and allocation expectations.'); gapWire('gapB','b','E+500 @ 97-97.5, 0% floor matches PT.','Selecting another range distorts pricing context.','Precise PT informs valuation and relative value screens.');
+      // Slider logic (newsapp style refined)
+      const track=document.getElementById('sectionTrack');
+      const viewport=document.getElementById('sectionViewport');
+  const slides=[...track.querySelectorAll('[id^="dq-slide-"]')];
+      let sectionIndex=0;
+      let resizeObs;
+      function syncIndicators(){document.querySelectorAll('[data-page-indicator]').forEach(el=>el.textContent=sectionIndex+1)}
+      function observeActive(){
+        if(!slides.length) return;
+        const active=slides[sectionIndex];
+        if(!active) return;
+        if(resizeObs) resizeObs.disconnect();
+        // For all slides, match content height exactly (no internal scroll)
+        viewport.style.overflow='hidden';
+        viewport.style.maxHeight='none';
+        viewport.style.minHeight='0';
+        const computeHeight = () => {
+          // include margins so the container ends exactly at the nav row
+          const cs = getComputedStyle(active);
+          const mt = parseFloat(cs.marginTop)||0;
+          const mb = parseFloat(cs.marginBottom)||0;
+          const h = active.scrollHeight + mt + mb;
+          if(h > 0) viewport.style.height = h + 'px';
+        };
+        resizeObs=new ResizeObserver(computeHeight);
+        resizeObs.observe(active);
+        computeHeight();
+        syncIndicators();
+      }
+      function updateViewportHeight(){observeActive()}
+      function scheduleHeightUpdate(){
+        try{requestAnimationFrame(()=>requestAnimationFrame(updateViewportHeight))}
+        catch{setTimeout(updateViewportHeight,50)}
+      }
+      function goTop(){try{window.scrollTo({top:0,behavior:'smooth'})}catch{window.scrollTo(0,0)}}
+      // Hook existing per-slide buttons to slider logic
+      document.getElementById('nextSectionBtn-1')?.addEventListener('click',()=>{
+        sectionIndex=1;
+        track.style.transform='translateX(-100%)'
+        setTimeout(()=>{updateViewportHeight(); goTop()},160)
+      })
+      document.getElementById('prevSectionBtn-2')?.addEventListener('click',()=>{
+        sectionIndex=0;
+        track.style.transform='translateX(0)'
+        setTimeout(()=>{updateViewportHeight(); goTop()},160)
+      })
+      document.getElementById('nextSectionBtn-2')?.addEventListener('click',()=>{
+        sectionIndex=2;
+        track.style.transform='translateX(-200%)'
+        setTimeout(()=>{updateViewportHeight(); goTop()},160)
+      })
+      document.getElementById('nextSectionBtn-3')?.addEventListener('click',()=>{
+        sectionIndex=3;
+        track.style.transform='translateX(-300%)'
+        setTimeout(()=>{updateViewportHeight(); goTop()},160)
+      })
+      document.getElementById('nextSectionBtn-4')?.addEventListener('click',()=>{
+        sectionIndex=4;
+        track.style.transform='translateX(-400%)'
+        setTimeout(()=>{updateViewportHeight(); goTop()},160)
+      })
+      document.getElementById('prevSectionBtn-3')?.addEventListener('click',()=>{
+        sectionIndex=1;
+        track.style.transform='translateX(-100%)'
+        setTimeout(()=>{updateViewportHeight(); goTop()},160)
+      })
+      document.getElementById('prevSectionBtn-4')?.addEventListener('click',()=>{
+        sectionIndex=2;
+        track.style.transform='translateX(-200%)'
+        setTimeout(()=>{updateViewportHeight(); goTop()},160)
+      })
+      document.getElementById('prevSectionBtn-5')?.addEventListener('click',()=>{
+        sectionIndex=3;
+        track.style.transform='translateX(-300%)'
+        setTimeout(()=>{updateViewportHeight(); goTop()},160)
+      })
+
+      // Slide 4 gap wiring (duplicate logic with -4 suffix IDs)
+      function setOK4(el, ok, body){ setOK(el, ok, body) }
+      const why4 = whyCopy;
+      const gapStatus4={gapA:false,gapB:false};
+    function tryRevealFinal4(){
+        const el=document.getElementById('finalAnswer-4'); if(!el) return;
+        if(gapStatus4.gapA && gapStatus4.gapB){
+      document.getElementById('finalAnswerText-4').textContent='Deal Update: €600m TLB due 2032. Final Terms E+500 @ 97 (from 97-97.5 PT), 0% floor. Re-commits due tomorrow (7-Nov) @ 13:00 UKT. Allocations thereafter';
+          el.classList.remove('hidden')
+        } else { el.classList.add('hidden') }
+        scheduleHeightUpdate();
+      }
+      const gapWire4=(idBase,correct,correctCopy,incorrectCopy,why)=>{
+        const id = `${idBase}-4`;
+        document.getElementById(`${id}-check`)?.addEventListener('click',()=>{
+          const v=document.querySelector(`input[name="${id}"]:checked`)?.value;
+          const ok=v===correct;
+          setOK4(document.getElementById(`${id}-result`), ok, (ok?`<p class=\"font-semibold\">Correct</p><p class=\"mt-1\">${correctCopy}</p>`:`<p class=\"font-semibold\">Not quite</p><p class=\"mt-1\">${incorrectCopy}</p>`) + why4(why));
+          gapStatus4[idBase]=ok;
+          tryRevealFinal4();
+        });
+        document.getElementById(`${id}-reset`)?.addEventListener('click',()=>{
+          const c=document.querySelector(`input[name="${id}"]:checked`); if(c) c.checked=false;
+          document.getElementById(`${id}-result`)?.classList.add('hidden');
+          gapStatus4[idBase]=false;
+          tryRevealFinal4();
+        })
+      };
+  gapWire4('gapA','a','Final Terms is the correct stage in the excerpt.','PT/Revised PT are guidance stages, not the finalised terms.','Stage accuracy matters for what we publish to clients.');
+  gapWire4('gapB','a','E+500 @ 97 (from 97-97.5 PT) matches the Final Terms.','The other options don’t reflect the final pricing shown.','Precise final terms inform valuation and comps.');
+      // Slide 5 gap wiring
+      const gapStatus5={gapA:false,gapB:false};
+      function tryRevealFinal5(){
+        const el=document.getElementById('finalAnswer-5'); if(!el) return;
+        if(gapStatus5.gapA && gapStatus5.gapB){
+          document.getElementById('finalAnswerText-5').textContent='Deal Update: €600m TLB due 2032. Priced E+500 @ 97, 0% floor';
+          el.classList.remove('hidden')
+        } else { el.classList.add('hidden') }
+        scheduleHeightUpdate();
+      }
+      function gapWire5(idBase,correct,correctCopy,incorrectCopy,why){
+        const id=`${idBase}-5`;
+        document.getElementById(`${id}-check`)?.addEventListener('click',()=>{
+          const v=document.querySelector(`input[name="${id}"]:checked`)?.value;
+          const ok=v===correct;
+          setOK(document.getElementById(`${id}-result`), ok, (ok?`<p class=\"font-semibold\">Correct</p><p class=\"mt-1\">${correctCopy}</p>`:`<p class=\"font-semibold\">Not quite</p><p class=\"mt-1\">${incorrectCopy}</p>`) + whyCopy(why));
+          gapStatus5[idBase]=ok;
+          tryRevealFinal5();
+        });
+        document.getElementById(`${id}-reset`)?.addEventListener('click',()=>{
+          const c=document.querySelector(`input[name="${id}"]:checked`); if(c) c.checked=false;
+          document.getElementById(`${id}-result`)?.classList.add('hidden');
+          gapStatus5[idBase]=false;
+          tryRevealFinal5();
+        });
+      }
+      gapWire5('gapA','a','TLB is the correct instrument.','Other instruments would change structure and pricing conventions.','Instrument accuracy frames investor expectations.');
+      gapWire5('gapB','b','Maturity year is 2032 per the blast.','Selecting another year misstates tenor.','Tenor precision affects relative value comparisons.');
+      document.addEventListener('DOMContentLoaded',()=> setTimeout(()=>{updateViewportHeight()},120)); if(unlocked) setTimeout(()=>{updateViewportHeight()},120); window.addEventListener('resize',()=> setTimeout(updateViewportHeight,120));
+    </script>
+</body>
+</html>
