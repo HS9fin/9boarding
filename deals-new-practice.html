@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>New Deals / Instruments Practice • 9Boarding</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+	<script src="https://cdn.tailwindcss.com"></script>
+	<script>tailwind.config={theme:{extend:{colors:{brand:{50:'#e9eef9',100:'#cdd8f0',200:'#a9b9e2',300:'#7e95cf',400:'#566fb7',500:'#3a5498',600:'#2b417a',700:'#223665',800:'#1a2a4f',900:'#121d38'},surface:{100:'#f8fafc',200:'#eef2f7',300:'#e2e8f0'}}}}};</script>
+	<style>html{font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,'Apple Color Emoji','Segoe UI Emoji';}body{overflow-x:hidden;}</style>
+</head>
+<body class="bg-white text-gray-900">
+	<script>(function(){try{if(sessionStorage.getItem('9boarding:auth')!=='yes'){if(!location.pathname.endsWith('login.html')) location.replace('./login.html')}}catch(e){}})();</script>
+	<header class="sticky top-0 z-40 bg-brand-800 shadow-sm">
+		<div class="mx-auto max-w-7xl px-6 py-4 flex items-center gap-4 text-white">
+			<a href="./index.html" class="flex items-center gap-3"><img src="./Images/9fin.jpg" alt="9fin logo" class="h-8 w-auto rounded object-contain" /><span class="text-lg font-semibold">9Boarding</span></a>
+			<nav class="ml-auto hidden sm:flex items-center gap-6 text-sm"><a href="./index.html#workflows" class="text-white/90 hover:text-white">Workflows</a></nav>
+		</div>
+	</header>
+	<main class="mx-auto max-w-7xl px-6 py-10">
+		<a href="./deals.html" class="text-sm text-brand-700 hover:underline">← Back to Deals reading</a>
+		<h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight mt-2">New Deals / Instruments — Practice</h1>
+		<p class="mt-2 text-gray-600">Unlocks when the New Deals / Instruments reading is ticked.</p>
+		<div id="guard" class="mt-6 hidden rounded-lg border border-amber-200 bg-amber-50 text-amber-900 p-4"><p class="font-medium">Locked: tick the New Deals / Instruments reading first</p><p class="text-sm mt-1">Go back to the <a href="./deals.html" class="underline">Deals reading list</a> and tick that item.</p></div>
+		<section id="practiceContent" class="mt-8 hidden">
+			<div class="rounded-xl border border-surface-200 bg-white/80 shadow-sm p-5">
+				<h2 class="text-xl font-semibold">Identify Core Terms</h2>
+				<p class="mt-2 text-sm text-gray-700">Choose the correct core terms for initial deal creation. Each selection reveals guidance.</p>
+				<div class="mt-4 space-y-5" id="quizBlock">
+					<div class="rounded-lg border border-surface-200 p-4">
+						<h3 class="font-medium">1) Which of these should be captured first for a brand new bond deal?</h3>
+						<div class="mt-3 space-y-2 text-sm">
+							<label class="flex items-center gap-2"><input type="radio" name="q1" value="a" class="h-4 w-4"/> a) Final pricing margin</label>
+							<label class="flex items-center gap-2"><input type="radio" name="q1" value="b" class="h-4 w-4"/> b) Issuer, instrument type, expected size and maturity</label>
+							<label class="flex items-center gap-2"><input type="radio" name="q1" value="c" class="h-4 w-4"/> c) Allocation statistics</label>
+						</div>
+						<div class="mt-3 flex gap-3">
+							<button id="q1-check" class="inline-flex items-center rounded-md bg-brand-700 px-4 py-2 text-sm font-medium text-white hover:bg-brand-600">Check answer</button>
+							<button id="q1-reset" class="inline-flex items-center rounded-md bg-surface-200 px-4 py-2 text-sm font-medium text-gray-900 hover:bg-surface-300">Reset</button>
+						</div>
+						<div id="q1-result" class="hidden mt-3 rounded-md border p-3 text-sm"></div>
+					</div>
+					<div class="rounded-lg border border-surface-200 p-4">
+						<h3 class="font-medium">2) For a new loan instrument, which channel should capture launch details?</h3>
+						<div class="mt-3 space-y-2 text-sm">
+							<label class="flex items-center gap-2"><input type="radio" name="q2" value="a" class="h-4 w-4"/> a) #dealupdates</label>
+							<label class="flex items-center gap-2"><input type="radio" name="q2" value="b" class="h-4 w-4"/> b) #loans</label>
+							<label class="flex items-center gap-2"><input type="radio" name="q2" value="c" class="h-4 w-4"/> c) #pricing</label>
+						</div>
+						<div class="mt-3 flex gap-3">
+							<button id="q2-check" class="inline-flex items-center rounded-md bg-brand-700 px-4 py-2 text-sm font-medium text-white hover:bg-brand-600">Check answer</button>
+							<button id="q2-reset" class="inline-flex items-center rounded-md bg-surface-200 px-4 py-2 text-sm font-medium text-gray-900 hover:bg-surface-300">Reset</button>
+						</div>
+						<div id="q2-result" class="hidden mt-3 rounded-md border p-3 text-sm"></div>
+					</div>
+					<div class="rounded-lg border border-surface-200 p-4">
+						<h3 class="font-medium">3) When creating an instrument page, which detail is most critical to avoid client confusion?</h3>
+						<div class="mt-3 space-y-2 text-sm">
+							<label class="flex items-center gap-2"><input type="radio" name="q3" value="a" class="h-4 w-4"/> a) Internal Slack thread link</label>
+							<label class="flex items-center gap-2"><input type="radio" name="q3" value="b" class="h-4 w-4"/> b) Accurate instrument type and tranche currency</label>
+							<label class="flex items-center gap-2"><input type="radio" name="q3" value="c" class="h-4 w-4"/> c) Syndicate desk contact name</label>
+						</div>
+						<div class="mt-3 flex gap-3">
+							<button id="q3-check" class="inline-flex items-center rounded-md bg-brand-700 px-4 py-2 text-sm font-medium text-white hover:bg-brand-600">Check answer</button>
+							<button id="q3-reset" class="inline-flex items-center rounded-md bg-surface-200 px-4 py-2 text-sm font-medium text-gray-900 hover:bg-surface-300">Reset</button>
+						</div>
+						<div id="q3-result" class="hidden mt-3 rounded-md border p-3 text-sm"></div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+	<footer class="mt-16 border-t border-surface-200">
+		<div class="mx-auto max-w-7xl px-6 py-8 text-sm text-gray-500 flex items-center justify-between">
+			<p>© <span id="year"></span> 9Boarding</p>
+			<a class="hover:text-brand-700" href="mailto:people@9fin.com">Contact People Ops</a>
+		</div>
+	</footer>
+	<script>
+		document.getElementById('year').textContent=new Date().getFullYear();
+		const KEY='9boarding:deals:reading';
+		const saved=JSON.parse(localStorage.getItem(KEY)||'{}');
+		const unlocked=!!saved['notion:new-deals-instruments'];
+		const guard=document.getElementById('guard');
+		const content=document.getElementById('practiceContent');
+		if(unlocked){content.classList.remove('hidden')} else {guard.classList.remove('hidden')}
+		function setOK(el,ok,body){el.classList.remove('hidden','border-green-200','bg-green-50','text-green-800','border-red-200','bg-red-50','text-red-800'); if(ok){el.classList.add('border-green-200','bg-green-50','text-green-800')} else {el.classList.add('border-red-200','bg-red-50','text-red-800')} el.innerHTML=body}
+		const whyCopy=t=>`<div class="mt-3 pt-2 border-t"><p class="font-medium">Why this matters</p><p class="mt-1">${t}</p></div>`;
+		function wire(num,correct,correctCopy,incorrectCopy,why){
+			const checkBtn=document.getElementById(`q${num}-check`);
+			const resetBtn=document.getElementById(`q${num}-reset`);
+			if(checkBtn){
+				checkBtn.addEventListener('click',()=>{
+					const selected=document.querySelector(`input[name="q${num}"]:checked`);
+					const v=selected?.value;
+					const ok=v===correct;
+					const resultEl=document.getElementById(`q${num}-result`);
+					setOK(resultEl,ok,(ok?`<p class="font-semibold">Correct</p><p class="mt-1">${correctCopy}</p>`:`<p class="font-semibold">Not quite</p><p class="mt-1">${incorrectCopy}</p>`)+whyCopy(why));
+				});
+			}
+			if(resetBtn){
+				resetBtn.addEventListener('click',()=>{
+					const selected=document.querySelector(`input[name="q${num}"]:checked`);
+					if(selected) selected.checked=false;
+					document.getElementById(`q${num}-result`)?.classList.add('hidden');
+				});
+			}
+		}
+		wire(1,'b','Issuer, instrument type, expected size & maturity form the foundation of a deal record.','Pricing or allocation stats come later in lifecycle.','Capturing essentials early avoids gaps downstream.');
+		wire(2,'b','#loans collects launch details for loan instruments.','#dealupdates summarises progress; #pricing is for later stages.','Routing launch info correctly accelerates creation & monitoring.');
+		wire(3,'b','Instrument type & currency ensure clients interpret terms correctly.','Ancillary internal data is secondary for external consumption.','Accuracy here prevents mispricing and confusion in analytics.');
+	</script>
+</body>
+</html>
